@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Image, TouchableWithoutFeedback} from 'react-native';
+import {Image, StyleSheet} from 'react-native';
 import {
   Text,
   Container,
@@ -13,69 +13,60 @@ import {
   Icon,
   Thumbnail
 } from 'native-base';
+import Swiper from 'react-native-swiper';
 
-const cards = [
-  {
-    text: 'Card One',
-    name: 'One',
-    image: require('../Images/Banners/1.jpg')
-  }, {
-    text: 'Card Two',
-    name: 'Two',
-    image: require('../Images/Banners/2.jpg')
-  }
-];
 export default class HomeScreen extends Component {
-  setFocus = () => {
+  onTouchStart = () => {
     console.log('focused!');
     this
       .props
       .func(true);
   };
+  onTouchEnd = () => {
+
+    setTimeout(() => {
+      console.log('ended!');
+      this
+        .props
+        .func(false);
+    }, 2000);
+  };
   render() {
     return (
       <Container>
-        <View>
-          <TouchableWithoutFeedback
-            onPressIn={this.setFocus}
-            style={{
-            height: 300
-          }}>
-            <DeckSwiper
-              looping
-              dataSource={cards}
-              renderItem={item => <Card style={{
-              elevation: 3
-            }}>
-              <CardItem>
-                <Left>
-                  <Thumbnail source={item.image}/>
-                  <Body>
-                    <Text>{item.text}</Text>
-                    <Text note>NativeBase</Text>
-                  </Body>
-                </Left>
-              </CardItem>
-              <CardItem cardBody>
-                <Image
-                  style={{
-                  height: 200,
-                  flex: 1
-                }}
-                  source={item.image}/>
-              </CardItem>
-              <CardItem>
-                <Icon
-                  name="heart"
-                  style={{
-                  color: '#ED4A6A'
-                }}/>
-                <Text>{item.name}</Text>
-              </CardItem>
-            </Card>}/>
-          </TouchableWithoutFeedback>
+        <View style={{
+          height: 150
+        }}>
+          <Swiper
+            showsButtons={true}
+            onTouchStart={this.onTouchStart}
+            onTouchEnd={this.onTouchEnd}>
+            <View style={styles.slide}>
+              <Text style={styles.text}>Hello Swiper</Text>
+            </View>
+            <View style={styles.slide}>
+              <Text style={styles.text}>Beautiful</Text>
+            </View>
+            <View style={styles.slide}>
+              <Text style={styles.text}>And simple</Text>
+            </View>
+          </Swiper>
         </View>
+        <Text style={{}}>Hello</Text>
+
       </Container>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  slide: {
+    height: 150,
+    backgroundColor: 'red'
+  },
+  text: {
+    color: '#fff',
+    fontSize: 30,
+    fontWeight: 'bold'
+  }
+})
