@@ -28,12 +28,19 @@ export default class MainScreen extends React.Component {
     {
         super(props);
         this.state = {
-            isOnTabOnline: true
+            isOnTabOnline: true,
+            tabSwipe: false
         };
         this.onProfileClick = this
             .onProfileClick
             .bind(this);
+        this.setTabSwipe = this
+            .setTabSwipe
+            .bind(this);
     }
+    setTabSwipe = (params) => {
+        this.setState({tabSwipe: params});
+    };
     onProfileClick = () => {
         this.setState({isOnTabOnline: false});
         this
@@ -89,9 +96,9 @@ export default class MainScreen extends React.Component {
                                 </Button>
                             </Right>
                         </Header>
-                        <Tabs initialPage={0}>
+                        <Tabs initialPage={0} locked={this.state.tabSwipe}>
                             <Tab heading="Trang Chủ">
-                                <HomeScreen/>
+                                <HomeScreen func={this.setTabSwipe}/>
                             </Tab>
                             <Tab heading="Playlist">
                                 <PlaylistScreen/>
