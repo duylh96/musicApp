@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, Container, Content} from 'native-base';
+import {Text, Container, Content, Body} from 'native-base';
 
 export default class BXHScreen extends Component {
     render() {
