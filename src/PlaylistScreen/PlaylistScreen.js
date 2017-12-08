@@ -25,8 +25,7 @@ render() {
                     <Text style={css.tieude2}> Ed Sheeran</Text>
                 </View>
             </View>
-
-                            </TouchableOpacity>
+          </TouchableOpacity>
         );
     }
 }
