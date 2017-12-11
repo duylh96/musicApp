@@ -10,28 +10,40 @@ import {
     ListView
 } from 'react-native';
 
+var Data = [
+    {url:'https://pbs.twimg.com/profile_images/819500159365160960/AOneM0y3_400x400.jpg', Name:'Divide'},
+	{url:'https://blogs-images.forbes.com/alishagrauso/files/2016/05/Iron-Man-Robert-Downey-Jr-Interview-1200x600.jpg?width=960', Name:"Iron Man"},
+	{url:'https://boygeniusreport.files.wordpress.com/2014/04/captain-america.jpg?quality=98&strip=all', Name:"Captain American"}, 
+	{url:'https://lumiere-a.akamaihd.net/v1/images/usa_spider-man_hero_games_m_9b86ed13.jpeg?region=0%2C0%2C640%2C320', Name:"Spider-Man"}, 
+	{url:'http://armchairarcade.com/perspectives/wp-content/uploads/2017/11/avengers-3-infinity-war-banner-story-spoliers-clues-1022009.jpg', Name:"Avenger"}, 
+];
+	
+
 export default class PlaylistScreen extends Component < {} > {
     constructor() {
         super();
         var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         this.state = {
             //dataSource: ds.cloneWithRows(['a', 'b', 'c', 'a longer example', 'd', 'e']),
-            dataSource: ds.cloneWithRows(this.genRows({}))
+            dataSource: ds.cloneWithRows(Data)
         };
       }
-      genRows(pressData: {[key: number]: boolean}): Array<string> {
-
-          var data = [];
-
-          for (var ii = 0; ii < 50; ii++) {
-
-            data.push('Row ' + ii);
-
-          }
-
-          return data;
-
-        }
+	CreateRender(property){
+	return(
+			<View style={css.renBox}>
+                <View style={css.renItem}>
+                    <Image
+                        style={css.icon}
+                        source={{
+                        uri: property.url
+                    }}/>
+                    <Text style={css.tieude1}>
+						{property.Name}
+                    </Text>
+                </View>
+			 </View>		
+	);
+}
 
     render() {
         return (
@@ -53,7 +65,7 @@ export default class PlaylistScreen extends Component < {} > {
 //                </View></TouchableOpacity>
                  <ListView
                         dataSource={this.state.dataSource}
-                        renderRow={(rowData) => <Text>{rowData}</Text>}
+                        renderRow={(this.CreateRender)}
                       />
 
         );
@@ -65,8 +77,8 @@ export default class PlaylistScreen extends Component < {} > {
 
 var css = StyleSheet.create({
     icon: {
-        width: 100,
-        height: 100
+        width: 120,
+        height: 120
     },
     tieude1: {
         backgroundColor: 'white',
@@ -80,9 +92,7 @@ var css = StyleSheet.create({
     },
     renBox: {
         backgroundColor: 'white',
-        flexDirection: 'column',
-        height: 100,
-        width: 200
+        flexDirection: 'row',
     },
     renItem: {
         borderBottomWidth: 1,
