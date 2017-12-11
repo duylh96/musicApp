@@ -17,6 +17,8 @@ import material from '../native-base-theme/variables/material';
 import SwiperBanner from '@components/swiper-banner'
 import GridAlbum from '@components/grid-album'
 
+import Bxh from '@components/bxh'
+
 export default class HomeScreen extends Component {
   onTouchStart = () => {
     console.log('focused!');
@@ -32,6 +34,7 @@ export default class HomeScreen extends Component {
           <Content style={styles.container}>
             <SwiperBanner/>
             <GridAlbum/>
+            <Bxh/>
           </Content>
           <Footer>
             <FooterTab>

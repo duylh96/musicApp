@@ -62,7 +62,8 @@ class GridAlbum extends Component {
                 <Text
                   style={{
                   fontWeight: '100',
-                  fontSize: 15
+                  fontSize: 15,
+                  color: 'gray'
                 }}>{item.singer}</Text>
               </View>
             </View>
