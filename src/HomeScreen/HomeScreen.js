@@ -5,17 +5,17 @@ import {
   Container,
   Content,
   View,
-  Card,
-  CardItem,
-  Body,
-  Left,
   Icon,
   Thumbnail,
   Footer,
   FooterTab,
-  Button
+  Button,
+  StyleProvider
 } from 'native-base';
-import Swiper from 'react-native-swiper';
+import getTheme from '../native-base-theme/components/';
+import material from '../native-base-theme/variables/material';
+import SwiperBanner from '@components/swiper-banner'
+import GridAlbum from '@components/grid-album'
 
 export default class HomeScreen extends Component {
   onTouchStart = () => {
@@ -24,52 +24,53 @@ export default class HomeScreen extends Component {
       .props
       .func(true);
   };
+
   render() {
     return (
-      <Container>
-        <Content style={styles.container}>
-          <View style={{
-            height: 150
-          }}>
-            <Swiper
-              autoplay={true}
-              autoplayTimeout={2}
-              autoplayDirection={true}
-              showsButtons={true}
-              onTouchStartCapture={this.onTouchStart}
-              dot={< View style = {
-              styles.dot
-            } />}
-              activeDot={< View style = {
-              styles.activedot
-            } />}>
-              <View style={styles.slide}>
-                <Image
-                  source={require('../Images/Banners/1.jpg')}
-                  style={styles.banner}
-                  resizeMode='cover'/>
-              </View>
-              <View style={styles.slide}>
-                <Image
-                  source={require('../Images/Banners/2.jpg')}
-                  style={styles.banner}
-                  resizeMode='cover'/>
-              </View>
-              <View style={styles.slide}>
-                <Text style={styles.text}>And simple</Text>
-              </View>
-            </Swiper>
-          </View>
-          <Text style={{}}>Hello</Text>
-        </Content>
-        <Footer>
-          <FooterTab>
-            <Button transparent>
-              <View></View>
-            </Button>
-          </FooterTab>
-        </Footer>
-      </Container>
+      <StyleProvider style={getTheme(material)}>
+        <Container>
+          <Content style={styles.container}>
+            <SwiperBanner/>
+            <GridAlbum/>
+          </Content>
+          <Footer>
+            <FooterTab>
+              <Button light androidRippleColor>
+                <View style={styles.footer}>
+                  <Thumbnail source={require('../Images/Disks/0.jpg')}/>
+                  <View style={styles.footer_title}>
+                    <Text style={styles.text_title}>Title</Text>
+                    <Text style={styles.text_sub_title}>Sub Title</Text>
+                  </View>
+                  <View style={styles.footer_play_area}>
+                    <Button androidRippleColor transparent>
+                      <Icon
+                        name="md-play"
+                        style={{
+                        color: '#2daaed'
+                      }}/>
+                    </Button>
+                    <Button androidRippleColor transparent>
+                      <Icon
+                        name="md-skip-forward"
+                        style={{
+                        color: '#2daaed'
+                      }}/>
+                    </Button>
+                    <Button androidRippleColor transparent>
+                      <Icon
+                        name="menu"
+                        style={{
+                        color: '#2daaed'
+                      }}/>
+                    </Button>
+                  </View>
+                </View>
+              </Button>
+            </FooterTab>
+          </Footer>
+        </Container>
+      </StyleProvider>
     )
   }
 }
@@ -78,34 +79,26 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 10
   },
-  slide: {
-    height: 150
-  },
-  banner: {
-    flex: 1,
-    height: undefined,
-    width: undefined,
+  footer: {
+    flexDirection: 'row',
     alignSelf: 'stretch',
-    margin: 0,
-    padding: 0
+    justifyContent: 'space-between'
   },
-  dot: {
-    backgroundColor: 'rgba(0,0,0,.2)',
-    width: 18,
-    height: 8,
-    borderRadius: 4,
-    margin: 3
+  footer_title: {
+    marginLeft: 18
   },
-  activedot: {
-    backgroundColor: '#007aff',
-    width: 18,
-    height: 8,
-    borderRadius: 4,
-    margin: 3
-  },
-  text: {
-    color: '#fff',
-    fontSize: 30,
+  text_title: {
+    marginTop: 5,
+    textAlign: 'left',
     fontWeight: 'bold'
+  },
+  text_sub_title: {
+    textAlign: 'left',
+    fontWeight: '100'
+  },
+  footer_play_area: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 })
