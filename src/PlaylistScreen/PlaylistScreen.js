@@ -15,7 +15,7 @@ var Data = [
 	{url:'https://blogs-images.forbes.com/alishagrauso/files/2016/05/Iron-Man-Robert-Downey-Jr-Interview-1200x600.jpg?width=960', Name:"Iron Man"},
 	{url:'https://boygeniusreport.files.wordpress.com/2014/04/captain-america.jpg?quality=98&strip=all', Name:"Captain American"}, 
 	{url:'https://lumiere-a.akamaihd.net/v1/images/usa_spider-man_hero_games_m_9b86ed13.jpeg?region=0%2C0%2C640%2C320', Name:"Spider-Man"}, 
-	{url:'http://armchairarcade.com/perspectives/wp-content/uploads/2017/11/avengers-3-infinity-war-banner-story-spoliers-clues-1022009.jpg', Name:"Avenger"}, 
+	{url:'https://www.cheatsheet.com/wp-content/uploads/2016/08/Avengers-Infinity-War-Logo-Joe-Steiner-1024x512.jpg?x57343', Name:"Avenger"}, 
 ];
 	
 
