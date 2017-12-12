@@ -17,26 +17,31 @@ class Bxh extends Component {
                 id: 1,
                 name: 'Năm Ấy',
                 singer: 'Đức Phúc',
+                color: 'purple',
                 url: require('../../Images/Albums/0.jpg')
             }, {
                 id: 2,
                 name: 'Người Yêu Cô Ấy',
                 singer: 'Châu Khải Phong',
+                color: 'green',
                 url: require('../../Images/Albums/1.jpg')
             }, {
                 id: 3,
                 name: 'Tophit 90-2000 Remix',
                 singer: 'Nguyễn Hải Yến',
+                color: 'orange',
                 url: require('../../Images/Albums/2.jpg')
             }, {
                 id: 4,
                 name: 'Cánh Hoa Tàn',
                 singer: 'Hương Tràm',
+                color: 'gray',
                 url: require('../../Images/Albums/3.jpg')
             }, {
                 id: 5,
                 name: 'Let Me Know',
                 singer: 'Bùi Anh Tú',
+                color: 'gray',
                 url: require('../../Images/Albums/4.jpg')
             }
         ];
@@ -51,11 +56,15 @@ class Bxh extends Component {
 
                 <List
                     dataArray={song_source}
-                    renderRow={item => <ListItem>
-                    <Button block transparent androidRippleColor height={60}>
+                    renderRow={item => <ListItem >
+                    <Button full block transparent androidRippleColor height={60}>
                         <View style={styles.item_container}>
                             <View style={styles.item_container_left}>
-                                <Text>{`0${item.id}`}</Text>
+                                <Text
+                                    style={{
+                                    alignSelf: 'center',
+                                    color: `${item.color}`
+                                }}>{`0${item.id}`}</Text>
                                 <Thumbnail size={80} source={item.url} style={styles.poster}/>
                                 <View style={styles.title}>
                                     <Text style={styles.text_title}>{item.name}</Text>
@@ -63,7 +72,14 @@ class Bxh extends Component {
                                 </View>
                             </View>
                             <View style={styles.item_container_right}>
-                                <Button transparent light androidRippleColor>
+                                <Button
+                                    transparent
+                                    light
+                                    androidRippleColor
+                                    style={{
+                                    justifyContent: 'flex-end',
+                                    alignItems: 'flex-end'
+                                }}>
                                     <Icon
                                         name='md-more'
                                         style={{
@@ -85,10 +101,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     item_container_left: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        flex: 9
     },
     item_container_right: {
-        alignItems: 'flex-end'
+        flex: 1
     },
     bxh_header: {
         flexDirection: 'row',
@@ -110,7 +127,8 @@ const styles = StyleSheet.create({
         marginLeft: 20
     },
     title: {
-        marginLeft: 15
+        marginLeft: 15,
+        alignSelf: 'center'
     },
     text_title: {
         fontWeight: '400',

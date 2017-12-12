@@ -19,6 +19,8 @@ import GridAlbum from '@components/grid-album'
 
 import Bxh from '@components/bxh'
 
+import MvHot from '@components/mv-hot'
+
 export default class HomeScreen extends Component {
   onTouchStart = () => {
     console.log('focused!');
@@ -35,6 +37,7 @@ export default class HomeScreen extends Component {
             <SwiperBanner/>
             <GridAlbum/>
             <Bxh/>
+            <MvHot/>
           </Content>
           <Footer>
             <FooterTab>
