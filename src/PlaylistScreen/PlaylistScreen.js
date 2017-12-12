@@ -49,7 +49,7 @@ export default class PlaylistScreen extends Component < {} > {
         return (
                  <ListView
 			automaticallyAdjustContentInsets={false}
-      			/initialListSize={9}
+      			//initialListSize={9}
 			horizontal={true}
                         dataSource={this.state.dataSource}
                         renderRow={(this.CreateRender)}
