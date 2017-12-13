@@ -71,22 +71,19 @@ class Bxh extends Component {
                                     <Text style={styles.text_singer}>{item.singer}</Text>
                                 </View>
                             </View>
-                            <View style={styles.item_container_right}>
-                                <Button
-                                    transparent
-                                    light
-                                    androidRippleColor
+                            <Button
+                                transparent
+                                light
+                                androidRippleColor
+                                style={{
+                                justifyContent: 'center'
+                            }}>
+                                <Icon
+                                    name='md-more'
                                     style={{
-                                    justifyContent: 'flex-end',
-                                    alignItems: 'flex-end'
-                                }}>
-                                    <Icon
-                                        name='md-more'
-                                        style={{
-                                        color: 'black'
-                                    }}/>
-                                </Button>
-                            </View>
+                                    color: 'black'
+                                }}/>
+                            </Button>
                         </View>
                     </Button>
                 </ListItem>}></List>
@@ -98,14 +95,12 @@ class Bxh extends Component {
 
 const styles = StyleSheet.create({
     item_container: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        width: '100%',
+        justifyContent: 'space-between'
     },
     item_container_left: {
-        flexDirection: 'row',
-        flex: 9
-    },
-    item_container_right: {
-        flex: 1
+        flexDirection: 'row'
     },
     bxh_header: {
         flexDirection: 'row',

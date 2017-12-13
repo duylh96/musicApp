@@ -44,26 +44,30 @@ class GridAlbum extends Component {
         </View>
         <GridView
           style={styles.album_grid}
+          itemDimension={110}
+          spacing={1}
           items={album_source}
           renderItem={item => (
-          <Button transparent androidRippleColor height={200}>
+          <Button transparent androidRippleColor height={180}>
             <View style={styles.album_grid_item}>
               <Image source={item.url} style={styles.album_grid_item_image}/>
               <View
                 style={{
-                height: 70,
+                height: 60,
                 justifyContent: 'space-between'
               }}>
                 <Text
                   style={{
                   fontWeight: '400',
-                  fontSize: 17
+                  fontSize: 15,
+                  paddingLeft: 2
                 }}>{item.name}</Text>
                 <Text
                   style={{
                   fontWeight: '100',
-                  fontSize: 15,
-                  color: 'gray'
+                  fontSize: 13,
+                  color: 'gray',
+                  paddingLeft: 2
                 }}>{item.singer}</Text>
               </View>
             </View>
@@ -96,11 +100,15 @@ const styles = StyleSheet.create({
     borderWidth: 0
   },
   album_grid_item: {
+    flex: 1,
+    margin: 0,
+    padding: 0,
     marginBottom: 15
+
   },
   album_grid_item_image: {
-    width: 130,
-    height: 130
+    width: 118,
+    height: 118
   }
 });
 

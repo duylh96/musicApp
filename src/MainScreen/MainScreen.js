@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {
     Container,
     Header,
-    Title,
     Content,
     Button,
     Left,
@@ -11,43 +10,28 @@ import {
     Icon,
     Text,
     Segment,
-    Tab,
-    Tabs,
+    Footer,
+    FooterTab,
+    View,
+    Thumbnail,
     StyleProvider,
     Drawer
 } from 'native-base';
+import {StyleSheet, Image} from 'react-native';
 import getTheme from '../native-base-theme/components/';
 import material from '../native-base-theme/variables/material';
 import SideBar from '../SideBar/SideBar.js';
-import HomeScreen from '../HomeScreen/HomeScreen';
-import BXHScreen from '../BXHScreen/BXHScreen';
-import PlaylistScreen from '../PlaylistScreen/PlaylistScreen';
+import ProfileScreen from '../ProfileScreen/ProfileScreen';
+import OnlineScreen from '../OnlineScreen/OnlineScreen';
 
 export default class MainScreen extends React.Component {
     constructor(props)
     {
         super(props);
         this.state = {
-            isOnTabOnline: true,
-            tabSwipe: false
+            isOnTabOnline: true
         };
-        this.onProfileClick = this
-            .onProfileClick
-            .bind(this);
-        this.setTabSwipe = this
-            .setTabSwipe
-            .bind(this);
     }
-    setTabSwipe = (params) => {
-        this.setState({tabSwipe: params});
-    };
-    onProfileClick = () => {
-        this.setState({isOnTabOnline: false});
-        this
-            .props
-            .navigation
-            .navigate("Profile");
-    };
     closeDrawer = () => {
         this
             .drawer
@@ -82,10 +66,20 @@ export default class MainScreen extends React.Component {
                             </Left>
                             <Body>
                                 <Segment>
-                                    <Button active={this.state.isOnTabOnline} first>
+                                    <Button
+                                        active={this.state.isOnTabOnline}
+                                        first
+                                        onPress={() => {
+                                        this.setState({isOnTabOnline: true});
+                                    }}>
                                         <Text>Online</Text>
                                     </Button>
-                                    <Button active={!this.state.isOnTabOnline} last onPress={this.onProfileClick}>
+                                    <Button
+                                        active={!this.state.isOnTabOnline}
+                                        last
+                                        onPress={() => {
+                                        this.setState({isOnTabOnline: false});
+                                    }}>
                                         <Text>Cá nhân</Text>
                                     </Button>
                                 </Segment>
@@ -96,20 +90,73 @@ export default class MainScreen extends React.Component {
                                 </Button>
                             </Right>
                         </Header>
-                        <Tabs initialPage={0} locked={this.state.tabSwipe}>
-                            <Tab heading="Trang Chủ">
-                                <HomeScreen func={this.setTabSwipe}/>
-                            </Tab>
-                            <Tab heading="Playlist">
-                                <PlaylistScreen/>
-                            </Tab>
-                            <Tab heading="BXH">
-                                <BXHScreen/>
-                            </Tab>
-                        </Tabs>
+                        {this.state.isOnTabOnline
+                            ? <OnlineScreen/>
+                            : <ProfileScreen/>}
+                        <Footer>
+                            <FooterTab>
+                                <Button light androidRippleColor>
+                                    <View style={styles.footer}>
+                                        <Thumbnail source={require('../Images/Disks/0.jpg')}/>
+                                        <View style={styles.footer_title}>
+                                            <Text style={styles.text_title}>Title</Text>
+                                            <Text style={styles.text_sub_title}>Sub Title</Text>
+                                        </View>
+                                        <View style={styles.footer_play_area}>
+                                            <Button androidRippleColor transparent>
+                                                <Icon
+                                                    name="md-play"
+                                                    style={{
+                                                    color: '#2daaed'
+                                                }}/>
+                                            </Button>
+                                            <Button androidRippleColor transparent>
+                                                <Icon
+                                                    name="md-skip-forward"
+                                                    style={{
+                                                    color: '#2daaed'
+                                                }}/>
+                                            </Button>
+                                            <Button androidRippleColor transparent>
+                                                <Icon
+                                                    name="menu"
+                                                    style={{
+                                                    color: '#2daaed'
+                                                }}/>
+                                            </Button>
+                                        </View>
+                                    </View>
+                                </Button>
+                            </FooterTab>
+                        </Footer>
                     </Container>
                 </Drawer>
             </StyleProvider>
         );
     }
 }
+
+const styles = StyleSheet.create({
+    footer: {
+        flexDirection: 'row',
+        alignSelf: 'stretch',
+        justifyContent: 'space-between'
+    },
+    footer_title: {
+        marginLeft: 18
+    },
+    text_title: {
+        marginTop: 5,
+        textAlign: 'left',
+        fontWeight: 'bold'
+    },
+    text_sub_title: {
+        textAlign: 'left',
+        fontWeight: '100'
+    },
+    footer_play_area: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
+});

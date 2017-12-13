@@ -10,7 +10,7 @@ class MvHot extends Component {
             {
                 name: 'Năm Ấy',
                 singer: 'Đức Phúc',
-                url: require('../../Images/Albums/0.jpg')
+                url: require('../../Images/Albums/6.jpg')
             }, {
                 name: 'Hai Thế Giới',
                 singer: 'Kyo York',
@@ -37,24 +37,25 @@ class MvHot extends Component {
                 <GridView
                     style={styles.mv_grid}
                     items={mv_source}
+                    itemDimension={165}
                     renderItem={item => (
-                    <Button transparent androidRippleColor height={200}>
+                    <Button transparent androidRippleColor height={150}>
                         <View style={styles.mv_grid_item}>
                             <Image source={item.url} style={styles.mv_grid_item_image}/>
                             <View
                                 style={{
-                                height: 70,
+                                height: 40,
                                 justifyContent: 'space-between'
                             }}>
                                 <Text
                                     style={{
                                     fontWeight: '400',
-                                    fontSize: 17
+                                    fontSize: 16
                                 }}>{item.name}</Text>
                                 <Text
                                     style={{
                                     fontWeight: '100',
-                                    fontSize: 15,
+                                    fontSize: 13,
                                     color: 'gray'
                                 }}>{item.singer}</Text>
                             </View>
@@ -84,8 +85,17 @@ const styles = StyleSheet.create({
         fontWeight: '400'
     },
     mv_grid: {},
-    mv_grid_item: {},
-    mv_grid_item_image: {}
+    mv_grid_item: {
+        margin: 0,
+        padding: 0,
+        marginBottom: 5
+    },
+    mv_grid_item_image: {
+        margin: 0,
+        padding: 0,
+        width: 170,
+        height: 110
+    }
 });
 
 export default MvHot;
