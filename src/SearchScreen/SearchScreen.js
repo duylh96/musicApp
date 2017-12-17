@@ -13,6 +13,8 @@ import {
     Icon,
     Button,
     Text,
+    List,
+    ListItem,
     StyleProvider
 } from 'native-base';
 import {StyleSheet} from 'react-native';
@@ -73,11 +75,15 @@ export default class SearchScreen extends Component {
                                 value={this.state.search_query}
                                 placeholder="Search"/>
                         </Item>
-                        <Button transparent>
-                            <Icon name='microphone'/>
+                        <Button
+                            style={{
+                            marginLeft: 5
+                        }}
+                            transparent>
+                            <Icon name='ios-mic-outline'/>
                         </Button>
                     </Header>
-                    <Body style={styles.container}>
+                    <View>
                         <View>
                             <Text style={styles.title}>TỪ KHOÁ HOT</Text>
                             <Flowlayout
@@ -89,12 +95,41 @@ export default class SearchScreen extends Component {
                         <View>
                             <View style={styles.view_title}>
                                 <Text style={styles.title}>LỊCH SỬ TÌM KIẾM</Text>
-                                <Button>
-                                    <Icon name='cancel'/>
+                                <Button style={styles.button_delete} transparent androidRippleColor>
+                                    <Text>xoa</Text>
                                 </Button>
                             </View>
+                            <List
+                                dataArray={this.state.history}
+                                renderRow={(item) => <ListItem
+                                style={{
+                                backgroundColor: 'transparent'
+                            }}>
+                                <Button transparent androidRippleColor height={55}>
+                                    <View style={styles.item_history}>
+                                        <View
+                                            style={{
+                                            flexDirection: 'row'
+                                        }}>
+                                            <Icon
+                                                style={{
+                                                alignSelf: 'center'
+                                            }}
+                                                name='ios-time-outline'/>
+                                            <Text
+                                                style={{
+                                                alignSelf: 'center',
+                                                marginLeft: 20
+                                            }}>{item.key}</Text>
+                                        </View>
+                                        <Button style={styles.button_delete} transparent androidRippleColor>
+                                            <Icon name='ios-close'/>
+                                        </Button>
+                                    </View>
+                                </Button>
+                            </ListItem>}></List>
                         </View>
-                    </Body>
+                    </View>
                 </Container>
             </StyleProvider>
         )
@@ -117,6 +152,17 @@ const styles = StyleSheet.create({
         flex: 1
     },
     view_title: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: '100%'
+    },
+    button_delete: {
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    item_history: {
+        flexDirection: 'row',
+        width: '100%',
+        justifyContent: 'space-between'
     }
 });
