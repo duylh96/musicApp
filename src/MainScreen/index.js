@@ -3,6 +3,7 @@ import MainScreen from './MainScreen'
 import SideBar from "../SideBar/SideBar.js";
 import ProfileScreen from '../ProfileScreen/ProfileScreen';
 import SearchScreen from '../SearchScreen/SearchScreen';
+import PlayScreen from '../PlayMusic/PlayMusic';
 import {DrawerNavigator} from "react-navigation";
 const MainScreenRouter = DrawerNavigator({
     Home: {
@@ -13,6 +14,9 @@ const MainScreenRouter = DrawerNavigator({
     },
     Search: {
         screen: SearchScreen
+    },
+    Play: {
+        screen: PlayScreen
     }
 }, {
     contentComponent: props => <SideBar {...props}/>

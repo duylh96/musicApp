@@ -95,7 +95,10 @@ export default class MainScreen extends React.Component {
                             : <ProfileScreen/>}
                         <Footer>
                             <FooterTab>
-                                <Button light androidRippleColor>
+                                <Button
+                                    light
+                                    androidRippleColor
+                                    onPress={() => this.props.navigation.navigate('Play')}>
                                     <View style={styles.footer}>
                                         <Thumbnail source={require('../Images/Disks/0.jpg')}/>
                                         <View style={styles.footer_title}>
