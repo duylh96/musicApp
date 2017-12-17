@@ -17,7 +17,7 @@ import {
     ListItem,
     StyleProvider
 } from 'native-base';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Alert} from 'react-native';
 import getTheme from '../native-base-theme/components/';
 import material from '../native-base-theme/variables/material';
 import Flowlayout from 'react-native-flowlayout';
@@ -50,6 +50,9 @@ export default class SearchScreen extends Component {
         this.onHotKeyClick = this
             .onHotKeyClick
             .bind(this);
+        this.deleteAllHistory = this
+            .deleteAllHistory
+            .bind(this);
     }
     onHotKeyClick = () => {
         let query = this.state.hot_key[
@@ -59,6 +62,18 @@ export default class SearchScreen extends Component {
                 .getSelectedPosition()
         ];
         this.setState({search_query: query});
+    };
+    deleteAllHistory = () => {
+        Alert.alert('', 'Bạn muốn xóa lịch sử tìm kiếm?', [
+            {
+                text: 'BỎ QUA',
+                onPress: () => console.log('Cancel Pressed'),
+                style: 'cancel'
+            }, {
+                text: 'XÓA',
+                onPress: () => console.log('OK Pressed')
+            }
+        ], {cancelable: false})
     };
     render() {
         return (
@@ -83,7 +98,9 @@ export default class SearchScreen extends Component {
                             <Icon name='ios-mic-outline'/>
                         </Button>
                     </Header>
-                    <View>
+                    <View style={{
+                        paddingLeft: 15
+                    }}>
                         <View>
                             <Text style={styles.title}>TỪ KHOÁ HOT</Text>
                             <Flowlayout
@@ -95,8 +112,18 @@ export default class SearchScreen extends Component {
                         <View>
                             <View style={styles.view_title}>
                                 <Text style={styles.title}>LỊCH SỬ TÌM KIẾM</Text>
-                                <Button style={styles.button_delete} transparent androidRippleColor>
-                                    <Text>xoa</Text>
+                                <Button
+                                    onPress={this.deleteAllHistory}
+                                    style={{
+                                    marginTop: 15
+                                }}
+                                    transparent
+                                    androidRippleColor>
+                                    <Text
+                                        style={{
+                                        fontStyle: 'normal',
+                                        fontSize: 12
+                                    }}>xóa</Text>
                                 </Button>
                             </View>
                             <List
@@ -105,7 +132,11 @@ export default class SearchScreen extends Component {
                                 style={{
                                 backgroundColor: 'transparent'
                             }}>
-                                <Button transparent androidRippleColor height={55}>
+                                <Button
+                                    transparent
+                                    androidRippleColor
+                                    height={55}
+                                    onPress={() => this.setState({search_query: item.key})}>
                                     <View style={styles.item_history}>
                                         <View
                                             style={{
@@ -148,9 +179,7 @@ const styles = StyleSheet.create({
         fontWeight: '400'
     },
     item_button: {},
-    item_text: {
-        flex: 1
-    },
+    item_text: {},
     view_title: {
         flexDirection: 'row',
         justifyContent: 'space-between',
