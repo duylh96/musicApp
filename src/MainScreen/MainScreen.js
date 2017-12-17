@@ -85,7 +85,7 @@ export default class MainScreen extends React.Component {
                                 </Segment>
                             </Body>
                             <Right>
-                                <Button transparent>
+                                <Button transparent onPress={() => this.props.navigation.navigate('Search')}>
                                     <Icon name="search"/>
                                 </Button>
                             </Right>
