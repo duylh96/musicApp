@@ -18,10 +18,10 @@ export default class ProfileScreen extends Component {
                 <Text style={styles.bigtext}>Năm Ấy</Text>
                 <Text style={styles.smalltext}>Đức Phúc</Text>
                 <View style={{flexDirection: 'row', marginTop: 60, alignSelf: 'center'}}>
-                    <Icon name='heart' />
-                    <Icon name='download' style={{marginLeft: 50}}/>
-                    <Icon name='image' style={{marginLeft: 50}}/>
-                    <Icon name='share' style={{marginLeft: 50}}/>
+                    <Icon name='ios-heart-outline' />
+                    <Icon name='ios-download-outline' style={{marginLeft: 50}}/>
+                    <Icon name='ios-images-outline' style={{marginLeft: 50}}/>
+                    <Icon name='ios-cloud-upload-outline' style={{marginLeft: 50}}/>
                 </View>
                 <View style={{flexDirection: 'row', marginTop: 20, alignSelf: "center"}}>
                      <Text style={{fontSize: 16, color: '#000000'}}>0:26</Text>
