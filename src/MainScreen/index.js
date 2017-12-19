@@ -1,16 +1,11 @@
 import React, {Component} from "react";
-import MainScreen from './MainScreen'
-import SideBar from "../SideBar/SideBar.js";
-import ProfileScreen from '../ProfileScreen/ProfileScreen';
+import MainScreen from './MainScreen';
 import SearchScreen from '../SearchScreen/index';
 import PlayScreen from '../PlayMusic/PlayMusic';
-import {DrawerNavigator} from "react-navigation";
-const MainScreenRouter = DrawerNavigator({
+import {StackNavigator} from "react-navigation";
+const MainScreenRouter = StackNavigator({
     Home: {
         screen: MainScreen
-    },
-    Profile: {
-        screen: ProfileScreen
     },
     Search: {
         screen: SearchScreen
@@ -19,6 +14,7 @@ const MainScreenRouter = DrawerNavigator({
         screen: PlayScreen
     }
 }, {
-    contentComponent: props => <SideBar {...props}/>
+    headerMode: 'none',
+    initialRouteName: 'Home'
 });
 export default MainScreenRouter;

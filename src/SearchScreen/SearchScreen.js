@@ -85,7 +85,7 @@ export default class SearchScreen extends Component {
         return (
             <StyleProvider style={getTheme(material)}>
                 <Container>
-                    <Header searchBar rounded>
+                    <Header searchBar rounded androidStatusBarColor="#1b668e">
                         <Button transparent onPress={() => this.props.navigation.goBack(null)}>
                             <Icon name='ios-arrow-back'/>
                         </Button>
