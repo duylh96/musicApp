@@ -25,6 +25,10 @@ import material from '../native-base-theme/variables/material';
 
 import SearchDexuat from '@components/search-dexuat'
 
+import SearchBaihat from '@components/search-baihat'
+
+import SearchPlaylist from '@components/search-playlist'
+
 export default class BXHScreen extends Component {
     render() {
         const {params} = this.props.navigation.state;
@@ -44,6 +48,8 @@ export default class BXHScreen extends Component {
                     </Header>
                     <Content>
                         <SearchDexuat param={params}/>
+                        <SearchBaihat param={params}/>
+                        <SearchPlaylist param={params}/>
                     </Content>
                     <Footer>
                         <FooterTab>
