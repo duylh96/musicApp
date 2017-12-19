@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import MainScreen from './MainScreen'
 import SideBar from "../SideBar/SideBar.js";
 import ProfileScreen from '../ProfileScreen/ProfileScreen';
-import SearchScreen from '../SearchScreen/SearchScreen';
+import SearchScreen from '../SearchScreen/index';
 import PlayScreen from '../PlayMusic/PlayMusic';
 import {DrawerNavigator} from "react-navigation";
 const MainScreenRouter = DrawerNavigator({

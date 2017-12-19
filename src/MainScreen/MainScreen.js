@@ -102,8 +102,8 @@ export default class MainScreen extends React.Component {
                                     <View style={styles.footer}>
                                         <Thumbnail source={require('../Images/Disks/0.jpg')}/>
                                         <View style={styles.footer_title}>
-                                            <Text style={styles.text_title}>Title</Text>
-                                            <Text style={styles.text_sub_title}>Sub Title</Text>
+                                            <Text style={styles.text_title}>LikeMusic</Text>
+                                            <Text style={styles.text_sub_title}>Nghe nhạc mọi lúc mọi nơi</Text>
                                         </View>
                                         <View style={styles.footer_play_area}>
                                             <Button androidRippleColor transparent>
