@@ -55,6 +55,9 @@ export default class SearchScreen extends Component {
         this.deleteAllHistory = this
             .deleteAllHistory
             .bind(this);
+        this.onSubmit = this
+            .onSubmit
+            .bind(this);
     }
     onHotKeyClick = () => {
         let query = this.state.hot_key[
@@ -67,7 +70,13 @@ export default class SearchScreen extends Component {
         this
             .props
             .navigation
-            .navigate('result');
+            .navigate('result', {search_query: query});
+    };
+    onSubmit = () => {
+        this
+            .props
+            .navigation
+            .navigate('result', {search_query: this.state.search_query});
     };
     deleteAllHistory = () => {
         Alert.alert('', 'Bạn muốn xóa lịch sử tìm kiếm?', [
@@ -93,8 +102,9 @@ export default class SearchScreen extends Component {
                             <Icon name="ios-search"/>
                             <Input
                                 onChangeText={(text) => this.setState({search_query: text})}
+                                onSubmitEditing={this.onSubmit}
                                 value={this.state.search_query}
-                                placeholder="Search"/>
+                                placeholder="Tìm kiếm"/>
                         </Item>
                         <Button
                             style={{
