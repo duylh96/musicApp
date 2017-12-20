@@ -46,7 +46,15 @@ export default class SearchBaihat extends Component {
                     style={{
                     backgroundColor: 'transparent'
                 }}>
-                    <Button transparent androidRippleColor full block>
+                    <Button
+                        transparent
+                        androidRippleColor
+                        full
+                        block
+                        style={{
+                        width: '100%',
+                        justifyContent: 'space-between'
+                    }}>
                         <View style={styles.item_container}>
                             <Text style={styles.item_title}>{item.name}</Text>
                             <View style={styles.item_sub_view}>
@@ -62,6 +70,13 @@ export default class SearchBaihat extends Component {
                                 <Text style={styles.item_sub_title}>{item.number}</Text>
                             </View>
                         </View>
+                        <Button transparent androidRippleColor>
+                            <Icon
+                                name='ios-more'
+                                style={{
+                                color: 'gray'
+                            }}/>
+                        </Button>
                     </Button>
                 </ListItem>}/>
             </Content>

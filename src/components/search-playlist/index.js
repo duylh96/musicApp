@@ -22,23 +22,28 @@ export default class SearchPlaylist extends Component {
             {
                 name: 'Năm Ấy',
                 singer: 'Đức Phúc',
-                url: require('../../Images/Posters/namay.jpg')
+                url: require('../../Images/Posters/namay.jpg'),
+                number: '146K'
             }, {
                 name: 'Mùa Đông Năm Ấy',
                 singer: 'Đỗ Thiên Bình',
-                url: require('../../Images/Posters/muadongnamay.jpg')
+                url: require('../../Images/Posters/muadongnamay.jpg'),
+                number: '294'
             }, {
                 name: 'Chàng Trai Năm Ấy',
                 singer: 'Sơn Tùng MTP, V.A',
-                url: require('../../Images/Posters/changtrainamay.jpg')
+                url: require('../../Images/Posters/changtrainamay.jpg'),
+                number: '4M'
             }, {
                 name: 'Gió Mùa Đông Năm Ấy',
                 singer: 'Moon Nguyễn, John Lê, Tố Đoàn, NS Trúc...',
-                url: require('../../Images/Posters/giomuadongnamay.jpg')
+                url: require('../../Images/Posters/giomuadongnamay.jpg'),
+                number: '1K'
             }, {
                 name: 'Năm Ấy Hoa Nở Trăng Vừa Tròn...',
                 singer: 'V.A',
-                url: require('../../Images/Posters/namayhoanotrangvuatron.jpg')
+                url: require('../../Images/Posters/namayhoanotrangvuatron.jpg'),
+                number: '830'
             }
         ];
         return (
@@ -50,20 +55,41 @@ export default class SearchPlaylist extends Component {
                     style={{
                     backgroundColor: 'transparent'
                 }}>
-                    <Button transparent androidRippleColor full block height={80}>
+                    <Button transparent androidRippleColor full block height={60}>
                         <View style={styles.item_container}>
                             <View
                                 style={{
                                 flexDirection: 'row'
                             }}>
                                 <Image source={item.url} style={styles.item_poster}/>
-                                <View>
+                                <View
+                                    style={{
+                                    marginLeft: 10
+                                }}>
                                     <Text style={styles.item_title}>{item.name}</Text>
                                     <Text style={styles.item_sub_title}>{item.singer}</Text>
+                                    <View style={styles.sub_view}>
+                                        <Icon
+                                            name='ios-headset'
+                                            style={{
+                                            color: 'gray',
+                                            fontSize: 16
+                                        }}/>
+                                        <Text
+                                            style={{
+                                            color: 'gray',
+                                            fontSize: 13,
+                                            marginLeft: 5
+                                        }}>{item.number}</Text>
+                                    </View>
                                 </View>
                             </View>
                             <Button transparent androidRippleColor>
-                                <Icon name='ios-arrow-forward-outline'/>
+                                <Icon
+                                    name='ios-arrow-forward-outline'
+                                    style={{
+                                    color: 'gray'
+                                }}/>
                             </Button>
                         </View>
                     </Button>
@@ -97,5 +123,8 @@ const styles = StyleSheet.create({
     item_sub_title: {
         fontSize: 13,
         color: 'gray'
+    },
+    sub_view: {
+        flexDirection: 'row'
     }
 });
