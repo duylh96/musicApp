@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Container, Content, Button, View, Text, Thumbnail, Icon} from 'native-base';
 import {StyleSheet, Image } from 'react-native';
-import {EvilIcons} from 'react-native-vector-icons/EvilIcons';
 
 export default class ProfileScreen extends Component {
     render() {
@@ -18,10 +17,10 @@ export default class ProfileScreen extends Component {
                 <Text style={styles.bigtext}>Năm Ấy</Text>
                 <Text style={styles.smalltext}>Đức Phúc</Text>
                 <View style={{flexDirection: 'row', marginTop: 60, alignSelf: 'center'}}>
-                    <Icon name='heart' />
-                    <Icon name='download' style={{marginLeft: 50}}/>
-                    <Icon name='image' style={{marginLeft: 50}}/>
-                    <Icon name='share' style={{marginLeft: 50}}/>
+                    <Icon name='ios-heart-outline' />
+                    <Icon name='ios-download-outline' style={{marginLeft: 50}}/>
+                    <Icon name='ios-images-outline' style={{marginLeft: 50}}/>
+                    <Icon name='ios-share-outline' style={{marginLeft: 50}}/>
                 </View>
                 <View style={{flexDirection: 'row', marginTop: 20, alignSelf: "center"}}>
                      <Text style={{fontSize: 16, color: '#000000'}}>0:26</Text>
@@ -29,10 +28,10 @@ export default class ProfileScreen extends Component {
                      <Text style={{fontSize:16, color: '#000000'}}>4:20</Text>
                 </View>
                 <View style={{flexDirection: 'row', marginTop: 20, alignSelf: "center"}}>
-                    <Icon name='shuffle' />
-                    <Icon name='previous' style={{marginLeft: 50}}/>
-                    <Icon name='play' style={{marginLeft: 50}}/>
-                    <Icon name='skip' style={{marginLeft: 50}}/>
+                    <Icon name='ios-shuffle' />
+                    <Icon name='ios-skip-backward' style={{marginLeft: 50}}/>
+                    <Icon name='ios-play' style={{marginLeft: 50}}/>
+                    <Icon name='ios-skip-forward' style={{marginLeft: 50}}/>
                     <Icon name='menu' style={{marginLeft: 50}}/>
                 </View>
               </View>
