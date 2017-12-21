@@ -11,109 +11,94 @@ import {
 import {View,
 		Text,
 		Button,
-		Icon,
+		Icon, 
 		Container, Content, StyleProvider} from 'native-base';
-import getTheme from '../native-base-theme/components/';
-import material from '../native-base-theme/variables/material';
-import GridAlbum from '@components/grid-album';
 
-var Data = [
-   {url:'https://pbs.twimg.com/profile_images/819500159365160960/AOneM0y3_400x400.jpg', Name:'Divide'},
-	{url:'https://blogs-images.forbes.com/alishagrauso/files/2016/05/Iron-Man-Robert-Downey-Jr-Interview-1200x600.jpg?width=960', Name:"Iron Man"},
-	{url:'https://boygeniusreport.files.wordpress.com/2014/04/captain-america.jpg?quality=98&strip=all', Name:"Captain American"}, 
-	{url:'https://lumiere-a.akamaihd.net/v1/images/usa_spider-man_hero_games_m_9b86ed13.jpeg?region=0%2C0%2C640%2C320', Name:"Spider-Man"}, 
-	{url:'https://www.cheatsheet.com/wp-content/uploads/2016/08/Avengers-Infinity-War-Logo-Joe-Steiner-1024x512.jpg?x57343', Name:"Avenger"}, 
-];
-	
+import GridView from 'react-native-super-grid';
 
 export default class PlaylistScreen extends Component < {} > {
-    constructor() {
-        super();
-        var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-        this.state = {
-            dataSource: ds.cloneWithRows(Data)
-        };
-      }
-	CreateRender(property){
-	return(
-			<View style={css.renBox}>
-                <View style={css.renItem}>
-                    <Image
-                        style={css.icon}
-                        source={{
-                        uri: property.url
-                    }}/>
-                    <Text style={css.album_text_header}>
-			{property.Name}
-                    </Text>
-                </View>
-			 </View>	
-			
-	);
-}
-
     render() {
+		const album_source = [
+        	{url:'https://pbs.twimg.com/profile_images/819500159365160960/AOneM0y3_400x400.jpg', Name:'Divide', Artist: 'Ed Sheeran'},
+		{url:'https://avatar-nct.nixcdn.com/playlist/2017/11/08/c/c/b/f/1510125100417.jpg', Name:"Perfect", Artist: 'Taylor Swift'},
+		{url:'https://avatar-nct.nixcdn.com/playlist/2017/12/15/9/1/c/5/1513321050320.jpg', Name:"Revival", Artist: 'Eminem'},
+		{url:'https://avatar-nct.nixcdn.com/playlist/2017/10/26/7/8/7/7/1509020943688.jpg', Name:"All Falls Down (Single)", Artist: 'V.A'},
+		{url:'https://avatar-nct.nixcdn.com/playlist/2017/11/26/c/b/2/f/1511674037040.jpg', Name:"Deamn (EP)", Artist: 'Deamn'},
+		{url:'https://avatar-nct.nixcdn.com/playlist/2017/09/15/d/d/7/a/1505408464480.jpg', Name:"The Spectre (Single)", Artist: 'Alan Walker'},
+		{url:'https://avatar-nct.nixcdn.com/playlist/2017/11/16/1/9/5/5/1510842870535.jpg', Name:"Christmas Piano Chill", Artist: 'Michael Forster'},
+		{url:'https://avatar-nct.nixcdn.com/playlist/2017/12/01/4/b/f/0/1512117674419.jpg', Name:"So Far Away (Single)", Artist: 'V.A'},
+		{url:'https://avatar-nct.nixcdn.com/playlist/2017/11/17/c/7/5/7/1510855400530.jpg', Name:"Havana Remix", Artist: 'V.A'},
+		{url:'https://avatar-nct.nixcdn.com/playlist/2017/11/02/c/d/5/b/1509587114293.jpg', Name:"Legend Never Die", Artist: 'V.A'},
+		{url:'https://pbs.twimg.com/profile_images/819500159365160960/AOneM0y3_400x400.jpg', Name:'Divide', Artist: 'Ed Sheeran'},
+		{url:'https://avatar-nct.nixcdn.com/playlist/2017/11/08/c/c/b/f/1510125100417.jpg', Name:"Perfect", Artist: 'Taylor Swift'},
+		{url:'https://avatar-nct.nixcdn.com/playlist/2017/12/15/9/1/c/5/1513321050320.jpg', Name:"Revival", Artist: 'Eminem'},
+		{url:'https://avatar-nct.nixcdn.com/playlist/2017/10/26/7/8/7/7/1509020943688.jpg', Name:"All Falls Down (Single)", Artist: 'V.A'},
+		{url:'https://avatar-nct.nixcdn.com/playlist/2017/11/26/c/b/2/f/1511674037040.jpg', Name:"Deamn (EP)", Artist: 'Deamn'},
+		{url:'https://avatar-nct.nixcdn.com/playlist/2017/09/15/d/d/7/a/1505408464480.jpg', Name:"The Spectre (Single)", Artist: 'Alan Walker'},
+		{url:'https://avatar-nct.nixcdn.com/playlist/2017/11/16/1/9/5/5/1510842870535.jpg', Name:"Christmas Piano Chill", Artist: 'Michael Forster'},
+		{url:'https://avatar-nct.nixcdn.com/playlist/2017/12/01/4/b/f/0/1512117674419.jpg', Name:"So Far Away (Single)", Artist: 'V.A'},
+		{url:'https://avatar-nct.nixcdn.com/playlist/2017/11/17/c/7/5/7/1510855400530.jpg', Name:"Havana Remix", Artist: 'V.A'},
+		{url:'https://avatar-nct.nixcdn.com/playlist/2017/11/02/c/d/5/b/1509587114293.jpg', Name:"Legend Never Die", Artist: 'V.A'},{url:'https://pbs.twimg.com/profile_images/819500159365160960/AOneM0y3_400x400.jpg', Name:'Divide', Artist: 'Ed Sheeran'},
+		{url:'https://avatar-nct.nixcdn.com/playlist/2017/11/08/c/c/b/f/1510125100417.jpg', Name:"Perfect", Artist: 'Taylor Swift'},
+		{url:'https://avatar-nct.nixcdn.com/playlist/2017/12/15/9/1/c/5/1513321050320.jpg', Name:"Revival", Artist: 'Eminem'},
+		{url:'https://avatar-nct.nixcdn.com/playlist/2017/10/26/7/8/7/7/1509020943688.jpg', Name:"All Falls Down (Single)", Artist: 'V.A'},
+		{url:'https://avatar-nct.nixcdn.com/playlist/2017/11/26/c/b/2/f/1511674037040.jpg', Name:"Deamn (EP)", Artist: 'Deamn'},
+		{url:'https://avatar-nct.nixcdn.com/playlist/2017/09/15/d/d/7/a/1505408464480.jpg', Name:"The Spectre (Single)", Artist: 'Alan Walker'},
+		{url:'https://avatar-nct.nixcdn.com/playlist/2017/11/16/1/9/5/5/1510842870535.jpg', Name:"Christmas Piano Chill", Artist: 'Michael Forster'},
+		{url:'https://avatar-nct.nixcdn.com/playlist/2017/12/01/4/b/f/0/1512117674419.jpg', Name:"So Far Away (Single)", Artist: 'V.A'},
+		{url:'https://avatar-nct.nixcdn.com/playlist/2017/11/17/c/7/5/7/1510855400530.jpg', Name:"Havana Remix", Artist: 'V.A'},
+		{url:'https://avatar-nct.nixcdn.com/playlist/2017/11/02/c/d/5/b/1509587114293.jpg', Name:"Legend Never Die", Artist: 'V.A'},
+		];
         return (
-			<StyleProvider style={getTheme(material)}>	
-				<Content>
-					<Container>
-						<View>
-						  <View style={css.album_header}>
-							  <Text id="Favorite" style={css.album_text_header}>Favorite</Text>
-							  <Button androidRippleColor transparent>
-								<Icon name="md-arrow-forward"/>
-							  </Button>
-						  </View>
-						  <ListView
-								automaticallyAdjustContentInsets={false}
-								//initialListSize={9}
-								horizontal={true}
-								dataSource={this.state.dataSource}
-								renderRow={(this.CreateRender)}
-								/>
-								<View style={css.album_header}>
-								  <Text style={css.album_text_header}>Most Interest</Text>
-								  <Button androidRippleColor transparent>
-									<Icon name="md-arrow-forward"/>
-								  </Button>
-							</View>
-							<ListView
-								automaticallyAdjustContentInsets={false}
-								//initialListSize={9}
-								horizontal={true}
-								dataSource={this.state.dataSource}
-								renderRow={(this.CreateRender)}
-								/>
-								<GridAlbum/>
-						
-							</View>
-						</Container>
-					</Content>	
-				</StyleProvider>
+			<View style={css.album}>
+				<View style={css.album_header}>
+				  <Text style={css.album_text_header}>Playlist</Text>
+				  <View style={css.selection}>
+					  <Button androidRippleColor transparent>
+						<Text>New </Text>
+					  </Button>
+					  <Button androidRippleColor transparent>
+						<Text>HOT</Text>
+					  </Button>
+				  </View>
+				</View>
+				<GridView
+				  style={css.album_grid}
+				   itemsPerRow={4}
+				  itemDimension={110}
+				  spacing={0}
+				  items={album_source}
+				  renderItem={item => (
+				  <Button transparent androidRippleColor height={180} width ={120}>
+					<View style={css.album_grid_item}>
+					  <Image source={{uri: item.url}} style={css.album_grid_item_image}/>
+					  <View
+						style={{
+						height: 60,
+						justifyContent: 'space-between'
+					  }}>
+						<Text
+						  style={{
+						  fontWeight: '200',
+						  fontSize: 15,
+						  paddingLeft: 2
+						}}>{item.Name}</Text>
+						<Text
+						  style={{
+						  fontWeight: '100',
+						  fontSize: 13,
+						  color: 'gray',
+						  paddingLeft: 2
+						}}>{item.Artist}</Text>
+					  </View>
+					</View>
+				  </Button>
+				)}/>
+			  </View>
         );
     }
 }
 var css = StyleSheet.create({
-    icon: {
-        width: 120,
-        height: 100,
-    },
-    renBox: {
-        backgroundColor: 'white',
-        flexDirection: 'row',
-		width: 120,
-        height: 150,
-    },
-    renItem: {
-		borderBottomColor:"grey",
-        borderBottomWidth: 1,
-        flexDirection: 'column',
-		
-    },
-    border: {
-        borderBottomWidth: 1,
-        flex: 1
-    },
 	album_header: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',
@@ -128,7 +113,7 @@ var css = StyleSheet.create({
 	  album_text_header: {
 		marginLeft: 10,
 		fontSize: 20,
-		fontWeight: '400'
+		fontWeight: '200'
 	  },
 	  album_grid: {
 		borderWidth: 0
@@ -139,4 +124,11 @@ var css = StyleSheet.create({
 		padding: 0,
 		marginBottom: 15
   	  },
+		album_grid_item_image: {
+		width: 120,
+		height: 120
+	  },
+	  selection:{
+		flexDirection: 'row',  
+	  },
 });
