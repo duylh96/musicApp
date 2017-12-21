@@ -3,12 +3,19 @@ import React, {Component} from 'react';
 import {
     Platform,
     StyleSheet,
-    Text,
-    View,
     TouchableOpacity,
-    Image,
-    ListView
+    Image, 
+    ListView, 
 } from 'react-native';
+
+import {View,
+		Text,
+		Button,
+		Icon,
+		Container, Content, StyleProvider} from 'native-base';
+import getTheme from '../native-base-theme/components/';
+import material from '../native-base-theme/variables/material';
+import GridAlbum from '@components/grid-album';
 
 var Data = [
    {url:'https://pbs.twimg.com/profile_images/819500159365160960/AOneM0y3_400x400.jpg', Name:'Divide'},
@@ -36,7 +43,7 @@ export default class PlaylistScreen extends Component < {} > {
                         source={{
                         uri: property.url
                     }}/>
-                    <Text style={css.tieude1}>
+                    <Text style={css.album_text_header}>
 			{property.Name}
                     </Text>
                 </View>
@@ -47,43 +54,89 @@ export default class PlaylistScreen extends Component < {} > {
 
     render() {
         return (
-                 <ListView
-			automaticallyAdjustContentInsets={false}
-      			//initialListSize={9}
-			horizontal={true}
-                        dataSource={this.state.dataSource}
-                        renderRow={(this.CreateRender)}
-                      />
-					  
+			<StyleProvider style={getTheme(material)}>	
+				<Content>
+					<Container>
+						<View>
+						  <View style={css.album_header}>
+							  <Text id="Favorite" style={css.album_text_header}>Favorite</Text>
+							  <Button androidRippleColor transparent>
+								<Icon name="md-arrow-forward"/>
+							  </Button>
+						  </View>
+						  <ListView
+								automaticallyAdjustContentInsets={false}
+								//initialListSize={9}
+								horizontal={true}
+								dataSource={this.state.dataSource}
+								renderRow={(this.CreateRender)}
+								/>
+								<View style={css.album_header}>
+								  <Text style={css.album_text_header}>Most Interest</Text>
+								  <Button androidRippleColor transparent>
+									<Icon name="md-arrow-forward"/>
+								  </Button>
+							</View>
+							<ListView
+								automaticallyAdjustContentInsets={false}
+								//initialListSize={9}
+								horizontal={true}
+								dataSource={this.state.dataSource}
+								renderRow={(this.CreateRender)}
+								/>
+								<GridAlbum/>
+						
+							</View>
+						</Container>
+					</Content>	
+				</StyleProvider>
         );
     }
 }
 var css = StyleSheet.create({
     icon: {
         width: 120,
-        height: 120,
-		flex:2
-    },
-    tieude1: {
-        backgroundColor: 'white',
-        color: 'black',
-        flex: 1
-    },
-    tieude2: {
-        backgroundColor: 'white',
-        color: 'grey',
-        flex: 1
+        height: 100,
     },
     renBox: {
         backgroundColor: 'white',
         flexDirection: 'row',
+		width: 120,
+        height: 150,
     },
     renItem: {
+		borderBottomColor:"grey",
         borderBottomWidth: 1,
-        flexDirection: 'column'
+        flexDirection: 'column',
+		
     },
     border: {
         borderBottomWidth: 1,
         flex: 1
-    }
+    },
+	album_header: {
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		alignItems: 'center',
+		borderColor: 'transparent',
+		borderLeftColor: '#2daaed',
+		borderStyle: 'solid',
+		borderWidth: 8,
+		marginTop: 18,
+		marginBottom: 8,
+	  },
+	  album_text_header: {
+		marginLeft: 10,
+		fontSize: 20,
+		fontWeight: '400'
+	  },
+	  album_grid: {
+		borderWidth: 0
+	  },
+	  album_grid_item: {
+		flex: 1,
+		margin: 0,
+		padding: 0,
+		marginBottom: 15
+  	  },
 });
