@@ -50,7 +50,7 @@ class Bxh extends Component {
                 <View style={styles.bxh_header}>
                     <Text style={styles.bxh_text_header}>BXH Bài hát Việt Nam</Text>
                     <Button androidRippleColor transparent>
-                        <Icon name="md-arrow-forward"/>
+                        <Icon name="ios-arrow-dropright"/>
                     </Button>
                 </View>
 

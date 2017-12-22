@@ -47,7 +47,7 @@ export default class SearchDexuat extends Component {
                         }}
                             name={item.type === 'song'
                             ? 'ios-musical-notes-outline'
-                            : 'ios-videocam-outline'}/>
+                            : 'ios-film-outline'}/>
                         <View
                             style={{
                             marginLeft: 10

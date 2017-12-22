@@ -39,7 +39,7 @@ class GridAlbum extends Component {
         <View style={styles.album_header}>
           <Text style={styles.album_text_header}>Album Hot</Text>
           <Button androidRippleColor transparent>
-            <Icon name="md-arrow-forward"/>
+            <Icon name="ios-arrow-dropright"/>
           </Button>
         </View>
         <GridView

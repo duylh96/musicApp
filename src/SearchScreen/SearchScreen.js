@@ -93,7 +93,7 @@ export default class SearchScreen extends Component {
     render() {
         return (
             <StyleProvider style={getTheme(material)}>
-                <Container>
+                <Container style={styles.container}>
                     <Header searchBar rounded androidStatusBarColor="#1b668e">
                         <Button transparent onPress={() => this.props.navigation.goBack(null)}>
                             <Icon name='ios-arrow-back'/>
@@ -225,9 +225,7 @@ export default class SearchScreen extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        alignItems: 'flex-start',
-        width: '100%',
-        marginLeft: 20
+        backgroundColor: '#FFFFFF'
     },
     title: {
         fontSize: 24,

@@ -46,7 +46,7 @@ export default class BXHScreen extends Component {
                         </Body>
                         <Right/>
                     </Header>
-                    <Content>
+                    <Content style={styles.container}>
                         <SearchDexuat param={params}/>
                         <SearchBaihat param={params}/>
                         <SearchPlaylist param={params}/>
@@ -97,6 +97,9 @@ export default class BXHScreen extends Component {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        backgroundColor: '#FFFFFF'
+    },
     footer: {
         flexDirection: 'row',
         alignSelf: 'stretch',
