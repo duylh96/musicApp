@@ -44,7 +44,10 @@ export default class SearchBaihat extends Component {
                     dataArray={result}
                     renderRow={(item) => <ListItem
                     style={{
-                    backgroundColor: 'transparent'
+                    backgroundColor: 'transparent',
+                    marginLeft: 5,
+                    marginRight: 0,
+                    padding: 0
                 }}>
                     <Button
                         transparent

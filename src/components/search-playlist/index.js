@@ -36,11 +36,11 @@ export default class SearchPlaylist extends Component {
                 number: '4M'
             }, {
                 name: 'Gió Mùa Đông Năm Ấy',
-                singer: 'Moon Nguyễn, John Lê, Tố Đoàn, NS Trúc...',
+                singer: 'Moon Nguyễn, John Lê, Tố Đoàn...',
                 url: require('../../Images/Posters/giomuadongnamay.jpg'),
                 number: '1K'
             }, {
-                name: 'Năm Ấy Hoa Nở Trăng Vừa Tròn...',
+                name: 'Năm Ấy Hoa Nở Trăng Vừa...',
                 singer: 'V.A',
                 url: require('../../Images/Posters/namayhoanotrangvuatron.jpg'),
                 number: '830'
@@ -53,7 +53,10 @@ export default class SearchPlaylist extends Component {
                     dataArray={result}
                     renderRow={(item) => <ListItem
                     style={{
-                    backgroundColor: 'transparent'
+                    backgroundColor: 'transparent',
+                    marginLeft: 5,
+                    marginRight: 0,
+                    padding: 0
                 }}>
                     <Button transparent androidRippleColor full block height={60}>
                         <View style={styles.item_container}>

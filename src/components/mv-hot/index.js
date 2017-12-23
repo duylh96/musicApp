@@ -37,9 +37,17 @@ class MvHot extends Component {
                 <GridView
                     style={styles.mv_grid}
                     items={mv_source}
-                    itemDimension={165}
+                    itemDimension={167}
                     renderItem={item => (
-                    <Button transparent androidRippleColor height={150}>
+                    <Button
+                        transparent
+                        androidRippleColor
+                        height={150}
+                        style={{
+                        marginLeft: 0,
+                        margin: 0,
+                        padding: 0
+                    }}>
                         <View style={styles.mv_grid_item}>
                             <Image source={item.url} style={styles.mv_grid_item_image}/>
                             <View
@@ -84,7 +92,9 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: '400'
     },
-    mv_grid: {},
+    mv_grid: {
+        marginLeft: -7
+    },
     mv_grid_item: {
         margin: 0,
         padding: 0,
@@ -93,7 +103,7 @@ const styles = StyleSheet.create({
     mv_grid_item_image: {
         margin: 0,
         padding: 0,
-        width: 170,
+        width: 175,
         height: 110
     }
 });

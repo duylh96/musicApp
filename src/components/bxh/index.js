@@ -56,7 +56,9 @@ class Bxh extends Component {
 
                 <List
                     dataArray={song_source}
-                    renderRow={item => <ListItem >
+                    renderRow={item => <ListItem style={{
+                    marginLeft: 3
+                }}>
                     <Button full block transparent androidRippleColor height={60}>
                         <View style={styles.item_container}>
                             <View style={styles.item_container_left}>

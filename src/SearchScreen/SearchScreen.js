@@ -7,8 +7,6 @@ import {
     Body,
     Right,
     Content,
-    Footer,
-    FooterTab,
     Item,
     Input,
     Icon,
@@ -16,13 +14,13 @@ import {
     Text,
     List,
     ListItem,
-    Thumbnail,
     StyleProvider
 } from 'native-base';
 import {StyleSheet, Alert} from 'react-native';
 import getTheme from '../native-base-theme/components/';
 import material from '../native-base-theme/variables/material';
 import Flowlayout from 'react-native-flowlayout';
+import Footer from '@components/footer';
 
 export default class SearchScreen extends Component {
     constructor(props) {
@@ -147,7 +145,8 @@ export default class SearchScreen extends Component {
                                 dataArray={this.state.history}
                                 renderRow={(item) => <ListItem
                                 style={{
-                                backgroundColor: 'transparent'
+                                backgroundColor: 'transparent',
+                                marginLeft: 5
                             }}>
                                 <Button
                                     transparent
@@ -178,45 +177,7 @@ export default class SearchScreen extends Component {
                             </ListItem>}></List>
                         </View>
                     </Content>
-                    <Footer>
-                        <FooterTab>
-                            <Button
-                                light
-                                androidRippleColor
-                                onPress={() => this.props.navigation.navigate('Play')}>
-                                <View style={styles.footer}>
-                                    <Thumbnail source={require('../Images/Disks/0.jpg')}/>
-                                    <View style={styles.footer_title}>
-                                        <Text style={styles.text_title}>LikeMusic</Text>
-                                        <Text style={styles.text_sub_title}>Nghe nhạc mọi lúc mọi nơi</Text>
-                                    </View>
-                                    <View style={styles.footer_play_area}>
-                                        <Button androidRippleColor transparent>
-                                            <Icon
-                                                name="md-play"
-                                                style={{
-                                                color: '#2daaed'
-                                            }}/>
-                                        </Button>
-                                        <Button androidRippleColor transparent>
-                                            <Icon
-                                                name="md-skip-forward"
-                                                style={{
-                                                color: '#2daaed'
-                                            }}/>
-                                        </Button>
-                                        <Button androidRippleColor transparent>
-                                            <Icon
-                                                name="menu"
-                                                style={{
-                                                color: '#2daaed'
-                                            }}/>
-                                        </Button>
-                                    </View>
-                                </View>
-                            </Button>
-                        </FooterTab>
-                    </Footer>
+                    <Footer nav={this.props.navigation}/>
                 </Container>
             </StyleProvider>
         )
@@ -247,27 +208,5 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         width: '100%',
         justifyContent: 'space-between'
-    },
-    footer: {
-        flexDirection: 'row',
-        alignSelf: 'stretch',
-        justifyContent: 'space-between'
-    },
-    footer_title: {
-        marginLeft: 18
-    },
-    text_title: {
-        marginTop: 5,
-        textAlign: 'left',
-        fontWeight: 'bold'
-    },
-    text_sub_title: {
-        textAlign: 'left',
-        fontWeight: '100'
-    },
-    footer_play_area: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center'
     }
 });

@@ -39,7 +39,7 @@ export default class ProfileScreen extends Component {
                             <Text style={styles.text}>Nghe gần đây</Text>
                         </View>
                     </Button>
-                    <Text>NHẠC OFFLINE</Text>
+                    <Text style={styles.title}>NHẠC OFFLINE</Text>
                     <Button transparent androidRippleColor full style ={styles.button_with_number}>
                         <View style={styles.button_normal_view}>
                             <Icon name='ios-paper-outline' style={styles.icon}/>
@@ -82,7 +82,7 @@ export default class ProfileScreen extends Component {
                         </View>
                         <Text>1</Text>
                     </Button>
-                    <Text>NHẠC ONLINE</Text>
+                    <Text style={styles.title}>NHẠC ONLINE</Text>
                     <Button transparent androidRippleColor full style ={styles.button_normal}>
                         <View style={styles.button_normal_view}>
                             <Icon name='ios-paper-outline' style={styles.icon}/>
@@ -116,6 +116,13 @@ export default class ProfileScreen extends Component {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#FFFFFF'
+    },
+    title: {
+        marginLeft: 12,
+        marginTop: 5,
+        marginBottom: 5,
+        fontWeight: '600',
+        fontSize: 18
     },
     button_login: {
         height: 80,

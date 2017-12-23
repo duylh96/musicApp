@@ -36,7 +36,8 @@ export default class SearchDexuat extends Component {
                     dataArray={result}
                     renderRow={(item) => <ListItem
                     style={{
-                    backgroundColor: 'transparent'
+                    backgroundColor: 'transparent',
+                    marginLeft: 0
                 }}>
                     <Button transparent androidRippleColor full block style={styles.item_container}>
                         <Icon
