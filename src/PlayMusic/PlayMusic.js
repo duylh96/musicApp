@@ -16,7 +16,7 @@ export default class ProfileScreen extends Component {
               <View style={styles.part2}>
                 <Text style={styles.bigtext}>Năm Ấy</Text>
                 <Text style={styles.smalltext}>Đức Phúc</Text>
-                <View style={{flexDirection: 'row', marginTop: 60, alignSelf: 'center'}}>
+                <View style={{flexDirection: 'row', marginTop: 30, alignSelf: 'center'}}>
                     <Icon name='ios-heart-outline' />
                     <Icon name='ios-download-outline' style={{marginLeft: 50}}/>
                     <Icon name='ios-images-outline' style={{marginLeft: 50}}/>
