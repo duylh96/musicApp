@@ -16,23 +16,41 @@ export default class ProfileScreen extends Component {
               <View style={styles.part2}>
                 <Text style={styles.bigtext}>Năm Ấy</Text>
                 <Text style={styles.smalltext}>Đức Phúc</Text>
-                <View style={{flexDirection: 'row', marginTop: 30, alignSelf: 'center'}}>
-                    <Icon name='ios-heart-outline' />
-                    <Icon name='ios-download-outline' style={{marginLeft: 50}}/>
-                    <Icon name='ios-images-outline' style={{marginLeft: 50}}/>
-                    <Icon name='ios-share-outline' style={{marginLeft: 50}}/>
+                <View style={{flexDirection: 'row', marginTop: 20, justifyContent: 'space-between', paddingLeft: 50, paddingRight: 50}}>
+                  <Button transparent>
+                    <Icon name='ios-heart-outline' style={styles.buttonStyle} />
+                  </Button>
+                  <Button transparent>
+                    <Icon name='ios-download-outline' style={[styles.buttonStyle]}/>
+                  </Button>
+                  <Button transparent>
+                    <Icon name='ios-images-outline' style={[styles.buttonStyle]}/>
+                  </Button>
+                  <Button transparent>
+                    <Icon name='ios-share-outline' style={[styles.buttonStyle]}/>
+                  </Button>
                 </View>
-                <View style={{flexDirection: 'row', marginTop: 20, alignSelf: "center"}}>
+                <View style={{flexDirection: 'row', marginTop: 10, justifyContent: 'space-between', paddingLeft: 20, paddingRight:20}}>
                      <Text style={{fontSize: 16, color: '#000000'}}>0:26</Text>
-                     <View style={{width: '75%', height: 15, backgroundColor: 'black'}} />
-                     <Text style={{fontSize:16, color: '#000000'}}>4:20</Text>
+                     <View style={{ width: '70%', height: 15, backgroundColor: 'black'}} />
+                     <Text style={{ fontSize:16, color: '#000000'}}>4:20</Text>
                 </View>
-                <View style={{flexDirection: 'row', marginTop: 20, alignSelf: "center"}}>
-                    <Icon name='ios-shuffle' />
-                    <Icon name='ios-skip-backward' style={{marginLeft: 50}}/>
-                    <Icon name='ios-play' style={{marginLeft: 50}}/>
-                    <Icon name='ios-skip-forward' style={{marginLeft: 50}}/>
-                    <Icon name='menu' style={{marginLeft: 50}}/>
+                <View style={{flexDirection: 'row', marginTop: 10, justifyContent: 'space-between', paddingLeft: 20, paddingRight: 20}}>
+                  <Button transparent>
+                    <Icon name='ios-shuffle' style={styles.buttonStyle}/>
+                  </Button>
+                  <Button transparent>
+                    <Icon name='ios-skip-backward'  style={[styles.buttonStyle]}/>
+                  </Button>
+                  <Button transparent>
+                    <Icon name='ios-play'  style={[styles.buttonStyle]}/>
+                  </Button>
+                  <Button transparent>
+                    <Icon name='ios-skip-forward'  style={[styles.buttonStyle]}/>
+                  </Button> 
+                  <Button transparent>
+                    <Icon name='menu'  style={styles.buttonStyle}/>
+                  </Button> 
                 </View>
               </View>
             </View>
@@ -106,7 +124,13 @@ const styles= StyleSheet.create({
         color: '#ffffff',
         fontSize: 20,
         textAlign: 'center',
-      }
+      },
+    buttonStyle: {
+        color: '#000000'
+    },
+    buttonMargin: {
+        marginLeft: 50
+    }
 });
 
 
