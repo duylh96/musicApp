@@ -9,6 +9,11 @@ export default class ProfileScreen extends Component {
               <View style={styles.part1}>
                     <View style={styles.backgroundImage}> 
                     </View>
+                    <View style={{position: 'absolute', top: 3, left: 3}}>
+                     <Button transparent>
+                     <Icon name='ios-arrow-down-outline' style={styles.icon}/>
+                  </Button>
+                    </View>
                     <View style={styles.backdropImage}>
                         <Image source={require('../Images/BackDrop/0.png')} style={styles.bdImage}/>
                     </View>
@@ -130,7 +135,16 @@ const styles= StyleSheet.create({
     },
     buttonMargin: {
         marginLeft: 50
-    }
+    },
+    icon: {
+        textAlign: 'center',
+        backgroundColor: '#111111',
+        paddingTop: 2,
+        borderRadius: 25,
+        color: '#ffffff',
+        width: 25,
+        height: 25,
+    },
 });
 
 
