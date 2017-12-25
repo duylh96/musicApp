@@ -17,7 +17,7 @@ export default class SideBar extends React.Component {
 
                     </View>
                    
-                    <Button transparent androidRippleColor full style ={styles.button_big}>
+                    <Button transparent androidRippleColor full style ={styles.button_big}  onPress={() => this.props.navigation.navigate("Login")}>
                             <View style={styles.button_normal_view}>
                                 <Icon name='ios-person-outline' style={styles.round_bigicon}/>
                                 <Text style={styles.text}>Đăng nhập</Text>
