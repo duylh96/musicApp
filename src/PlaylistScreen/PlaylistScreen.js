@@ -11,14 +11,21 @@ import {
 import {View,
 		Text,
 		Button,
-		Icon, 
-		Container, Content, StyleProvider} from 'native-base';
+		Icon, Content, StyleProvider} from 'native-base';
 
 import GridView from 'react-native-super-grid';
 
+var Data=[
+	//Icon
+			{link:'https://daks2k3a4ib2z.cloudfront.net/594a5ccb9407cf4ccfd5d32c/595d1d01117a9e1fbb9c4fce_video-play-icon.png'},
+			{link:'https://cdn2.iconfinder.com/data/icons/app-types-in-grey/512/audioguide_512pxGREY.png'},
+						
+];
+
 export default class PlaylistScreen extends Component < {} > {
     render() {
-		const album_source = [
+		const album_source = [			
+			//music images
         	{url:'https://pbs.twimg.com/profile_images/819500159365160960/AOneM0y3_400x400.jpg', Name:'Divide', Artist: 'Ed Sheeran'},
 		{url:'https://avatar-nct.nixcdn.com/playlist/2017/11/08/c/c/b/f/1510125100417.jpg', Name:"Perfect", Artist: 'Taylor Swift'},
 		{url:'https://avatar-nct.nixcdn.com/playlist/2017/12/15/9/1/c/5/1513321050320.jpg', Name:"Revival", Artist: 'Eminem'},
@@ -71,6 +78,8 @@ export default class PlaylistScreen extends Component < {} > {
 				  renderItem={item => (
 				  <Button transparent androidRippleColor height={180} width ={120}>
 					<View style={css.album_grid_item}>
+					  <Image source={{uri:'https://daks2k3a4ib2z.cloudfront.net/594a5ccb9407cf4ccfd5d32c/595d1d01117a9e1fbb9c4fce_video-play-icon.png'}} style={css.iconPlay}/>
+				      	  <Image source={{uri:'https://cdn2.iconfinder.com/data/icons/app-types-in-grey/512/audioguide_512pxGREY.png'}} style={css.iconListen}/>
 					  <Image source={{uri: item.url}} style={css.album_grid_item_image}/>
 					  <View
 						style={{
@@ -99,6 +108,21 @@ export default class PlaylistScreen extends Component < {} > {
     }
 }
 var css = StyleSheet.create({
+	iconListen:{
+		position: 'absolute',
+		height: 30,
+		width: 30,
+		marginTop: 85,
+		zIndex:2,
+	},
+	iconPlay:{
+		position: 'absolute',
+		height: 40,
+		width: 35,
+		marginLeft: 80,
+		marginTop: 85,
+		zIndex:2,
+	},
 	album_header: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',
@@ -125,8 +149,10 @@ var css = StyleSheet.create({
 		marginBottom: 15
   	  },
 		album_grid_item_image: {
+		position: 'absolute',
 		width: 120,
-		height: 120
+		height: 120,
+		zIndex:1,
 	  },
 	  selection:{
 		flexDirection: 'row',  
