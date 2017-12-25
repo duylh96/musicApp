@@ -32,7 +32,7 @@ export default class ProfileScreen extends Component {
                 </View>
                 <View style={{flexDirection: 'row', marginTop: 10, justifyContent: 'space-between', paddingLeft: 20, paddingRight:20}}>
                      <Text style={{fontSize: 16, color: '#000000'}}>0:26</Text>
-                     <View style={{ width: '70%', height: 15, backgroundColor: 'black'}} />
+                     <View style={{ width: '70%', height: 15, backgroundColor: 'black', borderRadius: 10}} />
                      <Text style={{ fontSize:16, color: '#000000'}}>4:20</Text>
                 </View>
                 <View style={{flexDirection: 'row', marginTop: 10, justifyContent: 'space-between', paddingLeft: 20, paddingRight: 20}}>
