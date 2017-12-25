@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {Root} from 'native-base';
 import {DrawerNavigator} from "react-navigation";
 import SideBar from "./src/SideBar/SideBar";
 import MainScreen from './src/MainScreen';
@@ -13,6 +14,8 @@ const RootRouter = DrawerNavigator({
 
 export default class LikeMusicApp extends Component {
   render() {
-    return <RootRouter/>;
+    return (
+      <Root><RootRouter/></Root>
+    );
   }
 }
