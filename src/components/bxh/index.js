@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Image, StyleSheet} from 'react-native'
+import {Image, StyleSheet, Alert} from 'react-native'
 import {
     View,
     Text,
@@ -7,8 +7,50 @@ import {
     Icon,
     List,
     ListItem,
-    Thumbnail
+    Thumbnail,
+    ActionSheet
 } from 'native-base';
+import Sound from 'react-native-sound';
+
+// Enable playback in silence mode
+Sound.setCategory('Playback');
+
+// Load the sound file 'whoosh.mp3' from the app bundle See notes below about
+// preloading sounds within initialization code below.
+var whoosh = new Sound(require('../../Musics/Nam-Ay.mp3'), Sound.MAIN_BUNDLE, (error) => {
+    if (error) {
+        console.log('failed to load the sound', error);
+        return;
+    }
+    // loaded successfully
+    console.log('duration in seconds: ' + whoosh.getDuration() + 'number of channels: ' + whoosh.getNumberOfChannels());
+});
+
+var BUTTONS = [
+    {
+        text: "Option 0",
+        icon: "american-football",
+        iconColor: "#2c8ef4"
+    }, {
+        text: "Option 1",
+        icon: "analytics",
+        iconColor: "#f42ced"
+    }, {
+        text: "Option 2",
+        icon: "aperture",
+        iconColor: "#ea943b"
+    }, {
+        text: "Delete",
+        icon: "trash",
+        iconColor: "#fa213b"
+    }, {
+        text: "Cancel",
+        icon: "close",
+        iconColor: "#25de5b"
+    }
+];
+var DESTRUCTIVE_INDEX = 3;
+var CANCEL_INDEX = 4;
 
 class Bxh extends Component {
     render() {
@@ -59,7 +101,20 @@ class Bxh extends Component {
                     renderRow={item => <ListItem style={{
                     marginLeft: 3
                 }}>
-                    <Button full block transparent androidRippleColor height={60}>
+                    <Button
+                        full
+                        block
+                        transparent
+                        androidRippleColor
+                        height={60}
+                        onPress={() => whoosh.play((success) => {
+                        if (success) {
+                            console.log('successfully finished playing');
+                        } else {
+                            console.log('playback failed due to audio decoding errors');
+                            whoosh.reset();
+                        }
+                    })}>
                         <View style={styles.item_container}>
                             <View style={styles.item_container_left}>
                                 <Text
@@ -79,7 +134,15 @@ class Bxh extends Component {
                                 androidRippleColor
                                 style={{
                                 justifyContent: 'center'
-                            }}>
+                            }}
+                                onPress={() => ActionSheet.show({
+                                options: BUTTONS,
+                                cancelButtonIndex: CANCEL_INDEX,
+                                destructiveButtonIndex: DESTRUCTIVE_INDEX,
+                                title: "Testing ActionSheet"
+                            }, buttonIndex => {
+                                alert(BUTTONS[buttonIndex].text);
+                            })}>
                                 <Icon
                                     name='md-more'
                                     style={{

@@ -7,16 +7,25 @@ import {
     Button,
     View
 } from 'native-base';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Image} from 'react-native';
 
 export default class ProfileScreen extends Component {
     render() {
         return (
             <Container>
                 <Content style={styles.container}>
-                    <Button full transparent androidRippleColor style={styles.button_login}>
+                    <View style={styles.background}>
+                        <Image
+                            source={require('../Images/Sidebar/backgroundImg.jpg')}
+                            style={styles.backgroundImg}></Image>
+                        <Image
+                            source={require('../Images/Sidebar/black.jpg')}
+                            style={styles.backgroundImg1}></Image>
+
+                    </View>
+                    <Button full transparent androidRippleColor full style ={styles.button_big}>
                         <View style={styles.view_login}>
-                            <Icon name='ios-person-outline'/>
+                            <Icon name='ios-person-outline' style={styles.round_bigicon}/>
                             <Text>Đăng nhập</Text>
                         </View>
                         <Button transparent androidRippleColor>
@@ -116,6 +125,45 @@ export default class ProfileScreen extends Component {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#FFFFFF'
+    },
+    backgroundImg: {
+        height: 130,
+        width: '100%',
+        alignSelf: "stretch",
+        justifyContent: "center",
+        alignItems: "center",
+        opacity: 1
+    },
+
+    backgroundImg1: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        height: 130,
+        width: '100%',
+        alignSelf: "stretch",
+        justifyContent: "center",
+        alignItems: "center",
+        opacity: 0.4
+    },
+    button_big: {
+        justifyContent: 'flex-start',
+        position: 'absolute',
+        top: 30,
+        left: 20,
+        height: 60,
+        width: 220
+    },
+    round_bigicon: {
+        marginLeft: 10,
+        padding: 10,
+        textAlign: 'center',
+        backgroundColor: '#777777',
+        borderRadius: 40,
+        color: '#ffffff',
+        width: 60,
+        height: 60,
+        fontSize: 40
     },
     title: {
         marginLeft: 12,
