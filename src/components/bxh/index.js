@@ -10,21 +10,7 @@ import {
     Thumbnail,
     ActionSheet
 } from 'native-base';
-import Sound from 'react-native-sound';
-
-// Enable playback in silence mode
-Sound.setCategory('Playback');
-
-// Load the sound file 'whoosh.mp3' from the app bundle See notes below about
-// preloading sounds within initialization code below.
-var whoosh = new Sound(require('../../Musics/Nam-Ay.mp3'), Sound.MAIN_BUNDLE, (error) => {
-    if (error) {
-        console.log('failed to load the sound', error);
-        return;
-    }
-    // loaded successfully
-    console.log('duration in seconds: ' + whoosh.getDuration() + 'number of channels: ' + whoosh.getNumberOfChannels());
-});
+import Song from '../../Api/Song'
 
 var BUTTONS = [
     {
@@ -60,31 +46,36 @@ class Bxh extends Component {
                 name: 'Năm Ấy',
                 singer: 'Đức Phúc',
                 color: 'purple',
-                url: require('../../Images/Albums/0.jpg')
+                url: require('../../Images/Albums/0.jpg'),
+                content: new Song(require('../../Musics/Nam-Ay.mp3'))
             }, {
                 id: 2,
                 name: 'Người Yêu Cô Ấy',
                 singer: 'Châu Khải Phong',
                 color: 'green',
-                url: require('../../Images/Albums/1.jpg')
+                url: require('../../Images/Albums/1.jpg'),
+                content: new Song(require('../../Musics/Nam-Ay.mp3'))
             }, {
                 id: 3,
                 name: 'Tophit 90-2000 Remix',
                 singer: 'Nguyễn Hải Yến',
                 color: 'orange',
-                url: require('../../Images/Albums/2.jpg')
+                url: require('../../Images/Albums/2.jpg'),
+                content: new Song(require('../../Musics/Nam-Ay.mp3'))
             }, {
                 id: 4,
                 name: 'Cánh Hoa Tàn',
                 singer: 'Hương Tràm',
                 color: 'gray',
-                url: require('../../Images/Albums/3.jpg')
+                url: require('../../Images/Albums/3.jpg'),
+                content: new Song(require('../../Musics/Nam-Ay.mp3'))
             }, {
                 id: 5,
                 name: 'Let Me Know',
                 singer: 'Bùi Anh Tú',
                 color: 'gray',
-                url: require('../../Images/Albums/4.jpg')
+                url: require('../../Images/Albums/4.jpg'),
+                content: new Song(require('../../Musics/Nam-Ay.mp3'))
             }
         ];
         return (
@@ -107,14 +98,12 @@ class Bxh extends Component {
                         transparent
                         androidRippleColor
                         height={60}
-                        onPress={() => whoosh.play((success) => {
-                        if (success) {
-                            console.log('successfully finished playing');
-                        } else {
-                            console.log('playback failed due to audio decoding errors');
-                            whoosh.reset();
-                        }
-                    })}>
+                        onPress={() => {
+                        // item
+                        //     .content
+                        //     .play();
+                        this.props.footer.play(item);
+                    }}>
                         <View style={styles.item_container}>
                             <View style={styles.item_container_left}>
                                 <Text

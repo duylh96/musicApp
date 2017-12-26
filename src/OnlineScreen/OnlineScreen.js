@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
-import {Container, Content, Text, Tab, Tabs} from 'native-base';
+import {
+    Container,
+    Content,
+    Text,
+    Tab,
+    Tabs,
+    Button
+} from 'native-base';
 
 import HomeScreen from '../HomeScreen/HomeScreen';
 import BXHScreen from '../BXHScreen/BXHScreen';
@@ -10,7 +17,7 @@ export default class OnlineScreen extends Component {
         return (
             <Tabs initialPage={0}>
                 <Tab heading="Trang Chủ">
-                    <HomeScreen/>
+                    <HomeScreen footer={this.props.footer}/>
                 </Tab>
                 <Tab heading="Playlist">
                     <PlaylistScreen/>

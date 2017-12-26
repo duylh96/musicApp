@@ -23,6 +23,7 @@ import ProfileScreen from '../ProfileScreen/ProfileScreen';
 import OnlineScreen from '../OnlineScreen/OnlineScreen';
 
 import Footer from '@components/footer';
+import Manager from '../Api/Manager'
 
 export default class MainScreen extends React.Component {
     constructor(props)
@@ -31,6 +32,7 @@ export default class MainScreen extends React.Component {
         this.state = {
             isOnTabOnline: true
         };
+        this.footerRef = new Manager();
     }
     closeDrawer = () => {
         this
@@ -91,9 +93,15 @@ export default class MainScreen extends React.Component {
                             </Right>
                         </Header>
                         {this.state.isOnTabOnline
-                            ? <OnlineScreen/>
+                            ? <OnlineScreen footer={this.footerRef}/>
                             : <ProfileScreen/>}
-                        <Footer nav={this.props.navigation}/>
+                        <Footer
+                            nav={this.props.navigation}
+                            ref={(ref) => {
+                            this
+                                .footerRef
+                                .setRef(ref);
+                        }}/>
                     </Container>
                 </Drawer>
             </StyleProvider>

@@ -25,7 +25,7 @@ export default class HomeScreen extends Component {
           <Content style={styles.container}>
             <SwiperBanner/>
             <GridAlbum/>
-            <Bxh/>
+            <Bxh footer={this.props.footer}/>
             <MvHot/>
           </Content>
         </Container>

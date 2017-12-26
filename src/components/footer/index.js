@@ -11,6 +11,16 @@ import {
 } from 'native-base';
 
 export default class MainFooter extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            title: 'LikeMusic',
+            sub_title: 'Nghe nhạc mọi lúc mọi nơi'
+        }
+    }
+    updateCurrentSong(song) {
+        this.setState({title: song.name, sub_title: song.singer});
+    }
     render() {
         return (
             <Footer>
@@ -22,8 +32,8 @@ export default class MainFooter extends Component {
                         <View style={styles.footer}>
                             <Thumbnail source={require('../../Images/Disks/0.jpg')} style={styles.disk}/>
                             <View style={styles.footer_title}>
-                                <Text style={styles.text_title}>LikeMusic</Text>
-                                <Text style={styles.text_sub_title}>Nghe nhạc mọi lúc mọi nơi</Text>
+                                <Text style={styles.text_title}>{this.state.title}</Text>
+                                <Text style={styles.text_sub_title}>{this.state.sub_title}</Text>
                             </View>
                             <View style={styles.footer_play_area}>
                                 <Button androidRippleColor transparent>
