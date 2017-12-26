@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Container, Content, Text, Icon, Button, View} from 'native-base';
-import {StyleSheet, Image, TextInput} from 'react-native';
+import {StyleSheet, Image, TextInput, TouchableOpacity, onButtonPress} from 'react-native';
 
 export default class LoginScreen extends Component {
     render() {
@@ -9,12 +9,27 @@ export default class LoginScreen extends Component {
                 <Image source={require('../Images/LoginScreen/LoginScreen.jpg')} style={styles.imageBG}></Image>
                 <Image source={require('../Images/LoginScreen/Black.jpg')} style={styles.imageBlur}></Image>
                 <View style={styles.loginBorder}>
-                    <View style={styles.inputView}>
-                        <TextInput style={styles.input}/>
-                    </View>
-                    <View style={[styles.inputView,styles.marginTop]}>
-                        <TextInput style={styles.input}/>
-                    </View>
+                    <TextInput style = {styles.newInput} 
+                        autoCapitalize="none" 
+                        autoCorrect={false} 
+                        keyboardType='email-address' 
+                        returnKeyType="next" 
+                        placeholder='User Name' 
+                        underlineColorAndroid="transparent"
+                        selectionColor='#ffffff'
+                        placeholderTextColor='rgba(225,225,225,0.7)'/>
+
+                    <TextInput style = {styles.newInput}    
+                        placeholder='Password' 
+                        placeholderTextColor='rgba(225,225,225,0.7)'
+                        selectionColor='#ffffff'
+                        underlineColorAndroid="transparent" 
+                         secureTextEntry/>
+
+                    <TouchableOpacity style={styles.buttonContainer} 
+                        onPress={onButtonPress}>
+                        <Text  style={styles.buttonText}>LOGIN</Text>
+                        </TouchableOpacity>
                 </View>
             </View>
         )
@@ -42,7 +57,7 @@ const styles=StyleSheet.create({
     },
     loginBorder: {
         position: 'absolute',
-        top: 100,
+        top: 150,
         left: 0,
         width: '100%',
         height: 350,
@@ -69,5 +84,31 @@ const styles=StyleSheet.create({
     },
     marginTop: {
         marginTop: 20,
-    }
+    },
+    newInput:{
+        height: 40,
+        backgroundColor: 'rgba(225,225,225,0.2)',
+        marginBottom: 10,
+        padding: 10,
+        color: '#fff',
+        paddingLeft: 20,
+        paddingRight: 20,
+        borderRadius: 10,
+        marginLeft: 20,
+        marginRight: 20,
+    },
+    buttonContainer:{
+        backgroundColor: '#2980b6',
+        paddingVertical: 15,
+        marginLeft: 20,
+        marginRight: 20,
+        borderRadius: 10,
+        marginTop: 10
+    },
+    buttonText:{
+        color: '#fff',
+        textAlign: 'center',
+        fontWeight: '700',
+    },
+    
 });
