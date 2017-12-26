@@ -45,7 +45,7 @@ export default class SideBar extends React.Component {
                         </View>
                     </Button>
 
-                    <Button transparent androidRippleColor full style ={styles.button_normal}>
+                    <Button transparent androidRippleColor full style ={styles.button_normal} onPress={() => this.props.navigation.navigate("About")}>
                         <View style={styles.button_normal_view}>
                             <Icon name='ios-contacts' style={styles.icon}/>
                             <Text style={styles.blacktext}>Liên hệ nhóm</Text>

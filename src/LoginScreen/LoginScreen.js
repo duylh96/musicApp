@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Container, Content, Text, Icon, Button, View} from 'native-base';
+import {Text, Icon, Button, View} from 'native-base';
 import {StyleSheet, Image, TextInput, TouchableOpacity, onButtonPress} from 'react-native';
 
 export default class LoginScreen extends Component {
@@ -14,13 +14,14 @@ export default class LoginScreen extends Component {
                         autoCorrect={false} 
                         keyboardType='email-address' 
                         returnKeyType="next" 
-                        placeholder='User Name' 
+                        placeholder='Tên đăng nhập' 
                         underlineColorAndroid="transparent"
                         selectionColor='#ffffff'
                         placeholderTextColor='rgba(225,225,225,0.7)'/>
 
-                    <TextInput style = {styles.newInput}    
-                        placeholder='Password' 
+                    <TextInput style = {styles.newInput}   
+                        
+                        placeholder='Mật khẩu' 
                         placeholderTextColor='rgba(225,225,225,0.7)'
                         selectionColor='#ffffff'
                         underlineColorAndroid="transparent" 
@@ -28,8 +29,12 @@ export default class LoginScreen extends Component {
 
                     <TouchableOpacity style={styles.buttonContainer} 
                         onPress={onButtonPress}>
-                        <Text  style={styles.buttonText}>LOGIN</Text>
-                        </TouchableOpacity>
+                        <Text  style={styles.buttonText}>ĐĂNG NHẬP</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                             onPress={onButtonPress}>
+                        <Text  style={styles.registerText}>Chưa có tài khoản? Đăng kí ngay</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         )
@@ -55,6 +60,7 @@ const styles=StyleSheet.create({
         height: '100%', 
         opacity: 0.7,
     },
+
     loginBorder: {
         position: 'absolute',
         top: 150,
@@ -82,9 +88,11 @@ const styles=StyleSheet.create({
         borderColor: 'white',
         backgroundColor: 'transparent',
     },
+
     marginTop: {
         marginTop: 20,
     },
+
     newInput:{
         height: 40,
         backgroundColor: 'rgba(225,225,225,0.2)',
@@ -97,6 +105,7 @@ const styles=StyleSheet.create({
         marginLeft: 20,
         marginRight: 20,
     },
+
     buttonContainer:{
         backgroundColor: '#2980b6',
         paddingVertical: 15,
@@ -105,10 +114,17 @@ const styles=StyleSheet.create({
         borderRadius: 10,
         marginTop: 10
     },
-    buttonText:{
+
+    buttonText: {
         color: '#fff',
         textAlign: 'center',
         fontWeight: '700',
     },
-    
+
+    registerText: {
+        fontSize:14, 
+        color:'#ffffff', 
+        marginTop:10, 
+        alignSelf: 'center'
+    }
 });
