@@ -4,13 +4,13 @@ import {StyleSheet, Image, Slider} from 'react-native';
 
 
 export default class ProfileScreen extends Component {
-    constructor(props) {
-        super(props)
-        this.state = { time: 0 }
-     } 
-    getVal(val){
-        console.warn(val);
-    }  
+//     constructor(props) {
+//         super(props)
+//         this.state = { time: 0 }
+//      } 
+//     getVal(val){
+//         console.warn(val);
+//     }  
     render() {
         return (
             <View style={styles.container}> 
@@ -44,15 +44,15 @@ export default class ProfileScreen extends Component {
                   </Button>
                 </View>
                 <View style={styles.groupIconContainer}>
-                     <Text style={{fontSize: 16, color: '#000000'}}>{this.stage.time}</Text>
+                     <Text style={{fontSize: 16, color: '#000000'}}>0:24</Text>
                      
                      <View style={{ marginTop: 2,width: '80%'}} >
                            <Slider minimumTrackTintColor='#000000'
                                    thumbTintColor='#000000'
-                                   value={this.state.time}
-                                   step={1}
-                                   onValueChange={val => this.setState({ time: val })}
-                                   onSlidingComplete={ val => this.getVal(val)}
+//                                    value={this.state.time}
+//                                    step={1}
+//                                    onValueChange={val => this.setState({ time: val })}
+//                                    onSlidingComplete={ val => this.getVal(val)}
                             />
                      </View>
                      <Text style={{ fontSize:16, color: '#000000'}}>4:20</Text>
