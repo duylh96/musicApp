@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Container, Content, Button, View, Text, Thumbnail, Icon} from 'native-base';
-import {StyleSheet, Image } from 'react-native';
+import {StyleSheet, Image, Slider} from 'react-native';
+
 
 export default class ProfileScreen extends Component {
     render() {
@@ -26,32 +27,38 @@ export default class ProfileScreen extends Component {
                     <Icon name='ios-heart-outline' style={styles.buttonStyle} />
                   </Button>
                   <Button transparent>
-                    <Icon name='ios-download-outline' style={[styles.buttonStyle]}/>
+                    <Icon name='ios-download-outline' style={styles.buttonStyle}/>
                   </Button>
                   <Button transparent>
-                    <Icon name='ios-images-outline' style={[styles.buttonStyle]}/>
+                    <Icon name='ios-images-outline' style={styles.buttonStyle}/>
                   </Button>
                   <Button transparent>
-                    <Icon name='ios-share-outline' style={[styles.buttonStyle]}/>
+                    <Icon name='ios-share-outline' style={styles.buttonStyle}/>
                   </Button>
                 </View>
-                <View style={{flexDirection: 'row', marginTop: 10, justifyContent: 'space-between', paddingLeft: 20, paddingRight:20}}>
+                <View style={styles.groupIconContainer}>
                      <Text style={{fontSize: 16, color: '#000000'}}>0:26</Text>
-                     <View style={{ width: '70%', height: 15, backgroundColor: 'black', borderRadius: 10}} />
+                     
+                     <View style={{ marginTop: 2,width: '80%'}} >
+                           <Slider minimumTrackTintColor='#000000'
+                                   thumbTintColor='#000000'
+                            />
+                     </View>
                      <Text style={{ fontSize:16, color: '#000000'}}>4:20</Text>
+                     
                 </View>
-                <View style={{flexDirection: 'row', marginTop: 10, justifyContent: 'space-between', paddingLeft: 20, paddingRight: 20}}>
+                <View style={styles.groupIconContainer1}>
                   <Button transparent>
                     <Icon name='ios-shuffle' style={styles.buttonStyle}/>
                   </Button>
                   <Button transparent>
-                    <Icon name='ios-skip-backward'  style={[styles.buttonStyle]}/>
+                    <Icon name='md-skip-backward'  style={styles.buttonStyle}/>
+                  </Button>
+                  <Button transparent style={styles.buttonPlay}>
+                    <Icon name='ios-play'  style={styles.iconPlay}/>
                   </Button>
                   <Button transparent>
-                    <Icon name='ios-play'  style={[styles.buttonStyle]}/>
-                  </Button>
-                  <Button transparent>
-                    <Icon name='ios-skip-forward'  style={[styles.buttonStyle]}/>
+                    <Icon name='md-skip-forward'  style={styles.buttonStyle}/>
                   </Button> 
                   <Button transparent>
                     <Icon name='menu'  style={styles.buttonStyle}/>
@@ -68,6 +75,7 @@ const styles= StyleSheet.create({
     container: {
         flex:1,
     },
+
     part1:{
         position: 'absolute',
         top: 0,
@@ -76,6 +84,7 @@ const styles= StyleSheet.create({
         width: '100%',  
         backgroundColor: '#d6d6d4',
     },
+
     part2:{
         position: 'absolute',
         top: 360,
@@ -84,6 +93,7 @@ const styles= StyleSheet.create({
         width: '100%',  
         backgroundColor: '#d6d6d4',
     },
+
     backgroundImage: {
         position: 'absolute',
         top: 0,
@@ -92,6 +102,7 @@ const styles= StyleSheet.create({
         width: '100%',
         backgroundColor: '#513e33',
     },
+
     backdropImage: {
         position: 'absolute',
         top: 60,
@@ -100,6 +111,7 @@ const styles= StyleSheet.create({
         width: '80%',
         backgroundColor: 'green',
     },
+
     bdImage: {
         position: 'absolute',
         top: 0,
@@ -108,9 +120,11 @@ const styles= StyleSheet.create({
         width: '100%',
         backgroundColor: 'green',
     },
+
     contentBackground: {
         backgroundColor: '#dbd7d4',
     },
+
     smalltext: {
         color:'#000000',
         textAlign: 'center',
@@ -118,6 +132,7 @@ const styles= StyleSheet.create({
         marginTop: 5,
        
     },
+
     bigtext: {
         color:'#000000',
         fontSize: 25,
@@ -125,17 +140,21 @@ const styles= StyleSheet.create({
         marginTop: 15,
        
     },
+
     text: {
         color: '#ffffff',
         fontSize: 20,
         textAlign: 'center',
-      },
+    },
+
     buttonStyle: {
         color: '#000000'
     },
+
     buttonMargin: {
         marginLeft: 50
     },
+
     icon: {
         textAlign: 'center',
         backgroundColor: '#111111',
@@ -145,6 +164,36 @@ const styles= StyleSheet.create({
         width: 25,
         height: 25,
     },
+
+    buttonPlay: {
+        backgroundColor: '#000000',
+        marginTop: 5, 
+        borderRadius: 10, 
+        width:40, 
+        height:40
+    },
+
+    iconPlay: {
+        color:'#ffffff',
+        fontSize: 20, 
+        textAlign: 'center'
+    },
+
+    groupIconContainer: {
+        flexDirection: 'row',
+        marginTop: 10, 
+        justifyContent: 'space-between', 
+        paddingLeft: 20, 
+        paddingRight:20
+    },
+
+    groupIconContainer1: {
+        flexDirection: 'row',
+        marginTop: 20, 
+        justifyContent: 'space-between', 
+        paddingLeft: 20, 
+        paddingRight:20
+    }
 });
 
 
