@@ -99,10 +99,10 @@ class Bxh extends Component {
                         androidRippleColor
                         height={60}
                         onPress={() => {
-                        // item
-                        //     .content
-                        //     .play();
-                        this.props.footer.play(item);
+                        this
+                            .props
+                            .footer
+                            .play(item);
                     }}>
                         <View style={styles.item_container}>
                             <View style={styles.item_container_left}>

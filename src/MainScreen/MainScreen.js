@@ -9,7 +9,6 @@ import {
     Body,
     Icon,
     Text,
-    Segment,
     View,
     Thumbnail,
     StyleProvider,
@@ -66,25 +65,63 @@ export default class MainScreen extends React.Component {
                                     <Icon name='menu'/>
                                 </Button>
                             </Left>
-                            <Body>
-                                <Segment>
-                                    <Button
-                                        active={this.state.isOnTabOnline}
-                                        first
-                                        onPress={() => {
-                                        this.setState({isOnTabOnline: true});
-                                    }}>
-                                        <Text>Online</Text>
-                                    </Button>
-                                    <Button
-                                        active={!this.state.isOnTabOnline}
-                                        last
-                                        onPress={() => {
-                                        this.setState({isOnTabOnline: false});
-                                    }}>
-                                        <Text>Cá nhân</Text>
-                                    </Button>
-                                </Segment>
+                            <Body
+                                style={{
+                                flexDirection: 'row',
+                                alignSelf: 'center'
+                            }}>
+                                <Button
+                                    transparent
+                                    androidRippleColor
+                                    onPress={() => {
+                                    this.setState({isOnTabOnline: true});
+                                    this
+                                        .textProfile
+                                        .setNativeProps({
+                                            style: {
+                                                color: '#a3daf7'
+                                            }
+                                        });
+                                    this
+                                        .textOnline
+                                        .setNativeProps({
+                                            style: {
+                                                color: '#fff'
+                                            }
+                                        });
+                                }}>
+                                    <Text
+                                        ref={(ref) => this.textOnline = ref}
+                                        style={{
+                                        color: '#fff'
+                                    }}>Online</Text>
+                                </Button>
+                                <Button
+                                    transparent
+                                    androidRippleColor
+                                    onPress={() => {
+                                    this.setState({isOnTabOnline: false});
+                                    this
+                                        .textProfile
+                                        .setNativeProps({
+                                            style: {
+                                                color: '#FFFFFF'
+                                            }
+                                        });
+                                    this
+                                        .textOnline
+                                        .setNativeProps({
+                                            style: {
+                                                color: '#a3daf7'
+                                            }
+                                        });
+                                }}>
+                                    <Text
+                                        ref={(ref) => this.textProfile = ref}
+                                        style={{
+                                        color: '#a3daf7'
+                                    }}>Cá nhân</Text>
+                                </Button>
                             </Body>
                             <Right>
                                 <Button transparent onPress={() => this.props.navigation.navigate('Search')}>
