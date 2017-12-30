@@ -1,16 +1,34 @@
 import React, {Component} from 'react';
 import {Container, Content, Button, View, Text, Thumbnail, Icon} from 'native-base';
-import {StyleSheet, Image, Slider} from 'react-native';
+import {StyleSheet, Image, Slider, constructor} from 'react-native';
+class textTimer extends Component{
+    constructor(props){
+        super(props);
+        this.state=props;
+    }
+
+    render(){
+        return(
+            <Text style={{fontSize: 16, color: '#000000'}}>{this.state.value}</Text>
+        )
+    }
+
+}
+
+
+
+var secondstoMMSS=function(totalSeconds){
+    var minutes = Math.floor(totalSeconds / 60);
+    var seconds = totalSeconds - (minutes * 60);
+    seconds = Math.round(seconds * 100) / 100;
+
+    var result = minutes;
+      result += ":" + (seconds <10 ? "0"+seconds : seconds);
+    return result;
+}
 
 
 export default class ProfileScreen extends Component {
-//     constructor(props) {
-//         super(props)
-//         this.state = { time: 0 }
-//      } 
-//     getVal(val){
-//         console.warn(val);
-//     }  
     render() {
         return (
             <View style={styles.container}> 
@@ -18,9 +36,9 @@ export default class ProfileScreen extends Component {
                     <View style={styles.backgroundImage}> 
                     </View>
                     <View style={{position: 'absolute', top: 3, left: 3}}>
-                     <Button transparent>
-                     <Icon name='ios-arrow-down-outline' style={styles.icon}/>
-                  </Button>
+                     <Button transparent onPress={() => this.props.navigation.navigate("Home")}>
+                        <Icon name='ios-arrow-down-outline' style={styles.icon}/>
+                     </Button>
                     </View>
                     <View style={styles.backdropImage}>
                         <Image source={require('../Images/BackDrop/0.png')} style={styles.bdImage}/>
@@ -44,11 +62,18 @@ export default class ProfileScreen extends Component {
                   </Button>
                 </View>
                 <View style={styles.groupIconContainer}>
-                     <Text style={{fontSize: 16, color: '#000000'}}>0:24</Text>
+                    {/* <textTimer value={'${this.state.value}'}/> */}
+                    <Text style={{fontSize: 16, color: '#000000'}}>0:24</Text>
                      
-                     <View style={{ marginTop: 2,width: '80%'}} >
+                     <View style={{ marginTop: 2, width: 250}} >
                            <Slider minimumTrackTintColor='#000000'
                                    thumbTintColor='#000000'
+                                //    value={this.state.value}
+                                //    minimumValue={0}
+                                //    maximumValue={250}
+                                //    onValueChange={(val=(secondstoMMSS(value)))=>{this.setState({value:val})
+                                //                          }}
+                                  
 //                                    value={this.state.time}
 //                                    step={1}
 //                                    onValueChange={val => this.setState({ time: val })}
@@ -179,7 +204,7 @@ const styles= StyleSheet.create({
     buttonPlay: {
         backgroundColor: '#000000',
         marginTop: 5, 
-        borderRadius: 10, 
+        borderRadius: 20, 
         width:40, 
         height:40
     },
