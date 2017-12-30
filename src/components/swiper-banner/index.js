@@ -13,7 +13,6 @@ class SwiperBanner extends Component {
           autoplay={true}
           autoplayTimeout={2}
           autoplayDirection={true}
-          showsButtons={true}
           onTouchStartCapture={this.onTouchStart}
           dot={< View style = {
           styles.dot
@@ -65,7 +64,7 @@ const styles = StyleSheet.create({
     margin: 3
   },
   activedot: {
-    backgroundColor: '#007aff',
+    backgroundColor: '#2daaed',
     width: 18,
     height: 8,
     borderRadius: 4,

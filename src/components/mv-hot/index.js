@@ -30,7 +30,11 @@ class MvHot extends Component {
                 <View style={styles.mv_header}>
                     <Text style={styles.mv_text_header}>MV Hot</Text>
                     <Button androidRippleColor transparent>
-                        <Icon name="ios-arrow-dropright"/>
+                        <Icon
+                            name="ios-arrow-dropright"
+                            style={{
+                            color: "#2daaed"
+                        }}/>
                     </Button>
                 </View>
 

@@ -14,25 +14,25 @@ import Song from '../../Api/Song'
 
 var BUTTONS = [
     {
-        text: "Option 0",
-        icon: "american-football",
-        iconColor: "#2c8ef4"
+        text: "Thêm vào yêu thích",
+        icon: "ios-heart-outline",
+        iconColor: "black"
     }, {
-        text: "Option 1",
-        icon: "analytics",
-        iconColor: "#f42ced"
+        text: "Thêm vào danh sách đang phát",
+        icon: "ios-play-outline",
+        iconColor: "black"
     }, {
-        text: "Option 2",
-        icon: "aperture",
-        iconColor: "#ea943b"
+        text: "Thêm vào playlist",
+        icon: "ios-list-box-outline",
+        iconColor: "black"
     }, {
-        text: "Delete",
-        icon: "trash",
-        iconColor: "#fa213b"
+        text: "Tải về",
+        icon: "ios-download-outline",
+        iconColor: "black"
     }, {
-        text: "Cancel",
-        icon: "close",
-        iconColor: "#25de5b"
+        text: "Chia sẻ",
+        icon: "ios-cloud-upload-outline",
+        iconColor: "black"
     }
 ];
 var DESTRUCTIVE_INDEX = 3;
@@ -83,7 +83,11 @@ class Bxh extends Component {
                 <View style={styles.bxh_header}>
                     <Text style={styles.bxh_text_header}>BXH Bài hát Việt Nam</Text>
                     <Button androidRippleColor transparent>
-                        <Icon name="ios-arrow-dropright"/>
+                        <Icon
+                            name="ios-arrow-dropright"
+                            style={{
+                            color: "#2daaed"
+                        }}/>
                     </Button>
                 </View>
 
