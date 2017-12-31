@@ -83,8 +83,7 @@ export default class BXHScreen extends Component {
 							dataArray={playlist_source}
 							renderRow={item => <ListItem >
 							<Button 
-									   full block 
-									   transparent androidRippleColor height={30}>
+								transparent androidRippleColor height={30}>
 								<View style={styles.item_container}>
 									<View style={styles.item_container_left}>
 										<Text
