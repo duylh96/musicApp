@@ -7,8 +7,7 @@ import {StyleSheet, Image, Slider, constructor, TextInput} from 'react-native';
 var secondstoMMSS=function(totalSeconds){
     var minutes = Math.floor(totalSeconds / 60);
     var seconds = totalSeconds - (minutes * 60);
-    seconds = Math.round(seconds * 100) / 100;
-
+    seconds = Math.round(seconds * 1) / 1; //round second
     var result = minutes;
       result += ":" + (seconds <10 ? "0"+seconds : seconds);
     return result;
@@ -21,28 +20,27 @@ var imageSource='';
 class Slidebar extends Component{
     constructor(props){
         super(props);
-        // this.state=props;
-        this.state={
-            startTime: startTime,
+        this.state=props;
+         this.state={
+            startTime: 0,
             endTime: secondstoMMSS(endTime),
         }
     }
     render(){
         return(
             <View style={styles.groupIconContainer}>
-                    {/* <Text style={{fontSize: 16, color: '#000000'}}>{'${this.state.value}'}</Text> */}
-                    <Text style={{fontSize: 16, color: '#000000'}}>{this.state.startTime}</Text>
+                    <Text style={{fontSize: 16, color: '#000000'}}>{secondstoMMSS(this.state.startTime)}</Text>
                      
                      <View style={{ marginTop: 2, width: maxWidth}} >
                            <Slider minimumTrackTintColor='#000000'
                                    thumbTintColor='#000000'
-                                //    step={maxWidth/endTime}
-                                //    minimumValue={0}
-                                //    value={this.state.value}
-                                //    maximumValue={maxWidth}
-                                //    onValueChange={(val)=>{
-                                //                     this.setState({value:val});
-                                //                  }}
+                                   step={maxWidth/endTime}
+                                   minimumValue={0}
+                                   value={this.state.startTime}
+                                   maximumValue={endTime}
+                                   onValueChange={(val)=>{
+                                                    this.setState({startTime:val});
+                                                 }}
                             />
                      </View>
                      <Text style={{ fontSize:16, color: '#000000'}}>{this.state.endTime}</Text>
@@ -85,31 +83,9 @@ export default class ProfileScreen extends Component {
                     <Icon name='ios-share-outline' style={styles.buttonStyle}/>
                   </Button>
                 </View>
-                <Slidebar value={100}/>
-                {/* <View style={styles.groupIconContainer}>
-                    <Text style={{fontSize: 16, color: '#000000'}}>0:24</Text>
-                     
-                     <View style={{ marginTop: 2, width: maxWidth}} >
-                           <Slider minimumTrackTintColor='#000000'
-                                   thumbTintColor='#000000'
-                                //    step={maxWidth/endTime}
-                                //    maximumValue={maxWidth}
-                                //    onValueChange={this.setState({startTime:secondstoMMSS(value)})}
-                                //    value={this.state.value}
-                                //    minimumValue={0}
-                                //    maximumValue={250}
-                                //    onValueChange={(val=(secondstoMMSS(value)))=>{this.setState({value:val})
-                                //                          }}
-                                  
-//                                    value={this.state.time}
-//                                    step={1}
-//                                    onValueChange={val => this.setState({ time: val })}
-//                                    onSlidingComplete={ val => this.getVal(val)}
-                            />
-                     </View>
-                     <Text style={{ fontSize:16, color: '#000000'}}>3:21</Text>
-                     
-                </View> */}
+
+                <Slidebar/>
+                
                 <View style={styles.groupIconContainer1}>
                   <Button transparent>
                     <Icon name='ios-shuffle' style={styles.buttonStyle}/>
