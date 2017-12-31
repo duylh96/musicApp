@@ -1,19 +1,6 @@
 import React, {Component} from 'react';
 import {Container, Content, Button, View, Text, Thumbnail, Icon} from 'native-base';
-import {StyleSheet, Image, Slider, constructor} from 'react-native';
-class textTimer extends Component{
-    constructor(props){
-        super(props);
-        this.state=props;
-    }
-
-    render(){
-        return(
-            <Text style={{fontSize: 16, color: '#000000'}}>{this.state.value}</Text>
-        )
-    }
-
-}
+import {StyleSheet, Image, Slider, constructor, TextInput} from 'react-native';
 
 
 
@@ -27,6 +14,43 @@ var secondstoMMSS=function(totalSeconds){
     return result;
 }
 
+var maxWidth=250;
+var startTime="0:00"
+var endTime=192;
+var imageSource='';
+class Slidebar extends Component{
+    constructor(props){
+        super(props);
+        // this.state=props;
+        this.state={
+            startTime: startTime,
+            endTime: secondstoMMSS(endTime),
+        }
+    }
+    render(){
+        return(
+            <View style={styles.groupIconContainer}>
+                    {/* <Text style={{fontSize: 16, color: '#000000'}}>{'${this.state.value}'}</Text> */}
+                    <Text style={{fontSize: 16, color: '#000000'}}>{this.state.startTime}</Text>
+                     
+                     <View style={{ marginTop: 2, width: maxWidth}} >
+                           <Slider minimumTrackTintColor='#000000'
+                                   thumbTintColor='#000000'
+                                //    step={maxWidth/endTime}
+                                //    minimumValue={0}
+                                //    value={this.state.value}
+                                //    maximumValue={maxWidth}
+                                //    onValueChange={(val)=>{
+                                //                     this.setState({value:val});
+                                //                  }}
+                            />
+                     </View>
+                     <Text style={{ fontSize:16, color: '#000000'}}>{this.state.endTime}</Text>
+                     
+            </View>
+        )
+    }
+}
 
 export default class ProfileScreen extends Component {
     render() {
@@ -61,13 +85,16 @@ export default class ProfileScreen extends Component {
                     <Icon name='ios-share-outline' style={styles.buttonStyle}/>
                   </Button>
                 </View>
-                <View style={styles.groupIconContainer}>
-                    {/* <textTimer value={'${this.state.value}'}/> */}
+                <Slidebar value={100}/>
+                {/* <View style={styles.groupIconContainer}>
                     <Text style={{fontSize: 16, color: '#000000'}}>0:24</Text>
                      
-                     <View style={{ marginTop: 2, width: 250}} >
+                     <View style={{ marginTop: 2, width: maxWidth}} >
                            <Slider minimumTrackTintColor='#000000'
                                    thumbTintColor='#000000'
+                                //    step={maxWidth/endTime}
+                                //    maximumValue={maxWidth}
+                                //    onValueChange={this.setState({startTime:secondstoMMSS(value)})}
                                 //    value={this.state.value}
                                 //    minimumValue={0}
                                 //    maximumValue={250}
@@ -80,9 +107,9 @@ export default class ProfileScreen extends Component {
 //                                    onSlidingComplete={ val => this.getVal(val)}
                             />
                      </View>
-                     <Text style={{ fontSize:16, color: '#000000'}}>4:20</Text>
+                     <Text style={{ fontSize:16, color: '#000000'}}>3:21</Text>
                      
-                </View>
+                </View> */}
                 <View style={styles.groupIconContainer1}>
                   <Button transparent>
                     <Icon name='ios-shuffle' style={styles.buttonStyle}/>
