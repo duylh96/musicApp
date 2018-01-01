@@ -1,127 +1,156 @@
 import React, {Component} from 'react';
-import {Container, Content, Button, View, Text, Thumbnail, Icon} from 'native-base';
+import {
+    Container,
+    Content,
+    Button,
+    View,
+    Text,
+    Thumbnail,
+    Icon
+} from 'native-base';
 import {StyleSheet, Image, Slider, constructor, TextInput} from 'react-native';
 
-
-
-var secondstoMMSS=function(totalSeconds){
+var secondstoMMSS = function (totalSeconds) {
     var minutes = Math.floor(totalSeconds / 60);
     var seconds = totalSeconds - (minutes * 60);
-    seconds = Math.round(seconds); 
+    seconds = Math.round(seconds);
     var result = minutes;
-      result += ":" + (seconds <10 ? "0"+seconds : seconds);
+    result += ":" + (seconds < 10? "0" + seconds: seconds);
     return result;
 }
 
-var maxWidth=250;
-var endTime=192;
+var maxWidth = 250;
+var endTime = 192;
 
 export default class ProfileScreen extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state=props;
-        this.state={
-                      startTime: 0,
-                      endTime: secondstoMMSS(endTime),
-                   }
+        this.state = props;
+        this.state = {
+            startTime: 0,
+            endTime: secondstoMMSS(endTime)
+        }
     }
     render() {
         return (
-            <View style={styles.container}> 
-              <View style={styles.part1}>
-                    <View style={styles.backgroundImage}> 
-                    </View>
-                    <View style={{position: 'absolute', top: 3, left: 3}}>
-                     <Button transparent onPress={() => this.props.navigation.navigate("Home")}>
-                        <Icon name='ios-arrow-down-outline' style={styles.icon}/>
-                     </Button>
+            <View style={styles.container}>
+                <View style={styles.part1}>
+                    <View style={styles.backgroundImage}></View>
+                    <View
+                        style={{
+                        position: 'absolute',
+                        top: 3,
+                        left: 3
+                    }}>
+                        <Button transparent onPress={() => this.props.navigation.goBack(null)}>
+                            <Icon name='ios-arrow-down-outline' style={styles.icon}/>
+                        </Button>
                     </View>
                     <View style={styles.backdropImage}>
                         <Image source={require('../Images/BackDrop/0.png')} style={styles.bdImage}/>
                     </View>
-              </View>
-              <View style={styles.part2}>
-                <Text style={styles.bigtext}>Năm Ấy</Text>
-                <Text style={styles.smalltext}>Đức Phúc</Text>
-                <View style={{flexDirection: 'row', marginTop: 20, justifyContent: 'space-between', paddingLeft: 50, paddingRight: 50}}>
-                  <Button transparent>
-                    <Icon name='ios-heart-outline' style={styles.buttonStyle} />
-                  </Button>
-                  <Button transparent>
-                    <Icon name='ios-download-outline' style={styles.buttonStyle}/>
-                  </Button>
-                  <Button transparent>
-                    <Icon name='ios-images-outline' style={styles.buttonStyle}/>
-                  </Button>
-                  <Button transparent>
-                    <Icon name='ios-share-outline' style={styles.buttonStyle}/>
-                  </Button>
                 </View>
+                <View style={styles.part2}>
+                    <Text style={styles.bigtext}>Năm Ấy</Text>
+                    <Text style={styles.smalltext}>Đức Phúc</Text>
+                    <View
+                        style={{
+                        flexDirection: 'row',
+                        marginTop: 20,
+                        justifyContent: 'space-between',
+                        paddingLeft: 50,
+                        paddingRight: 50
+                    }}>
+                        <Button transparent>
+                            <Icon name='ios-heart-outline' style={styles.buttonStyle}/>
+                        </Button>
+                        <Button transparent>
+                            <Icon name='ios-download-outline' style={styles.buttonStyle}/>
+                        </Button>
+                        <Button transparent>
+                            <Icon name='ios-images-outline' style={styles.buttonStyle}/>
+                        </Button>
+                        <Button transparent>
+                            <Icon name='ios-share-outline' style={styles.buttonStyle}/>
+                        </Button>
+                    </View>
 
-                <View style={styles.groupIconContainer}>
-                   <Text style={{fontSize: 16, color: '#000000'}}>{secondstoMMSS(this.state.startTime)}</Text>
-                     
-                     <View style={{ marginTop: 2, width: maxWidth}} >
-                         <Slider minimumTrackTintColor='#000000' 
-                                   thumbTintColor='#000000'
-                                   step={maxWidth/endTime}
-                                   minimumValue={0}
-                                   value={this.state.startTime}
-                                   maximumValue={endTime}
-                                   onValueChange={(val)=>{
-                                                    this.setState({startTime:val});
-                                                 }}
-                            />
-                     </View>
-                     <Text style={{ fontSize:16, color: '#000000'}}>{this.state.endTime}</Text>
-                     
-                 </View>
-                
-                <View style={styles.groupIconContainer1}>
-                  <Button transparent>
-                    <Icon name='ios-shuffle' style={styles.buttonStyle}/>
-                  </Button>
-                  <Button transparent>
-                    <Icon name='md-skip-backward'  style={styles.buttonStyle}/>
-                  </Button>
-                  <Button transparent style={styles.buttonPlay}>
-                    <Icon name='ios-play'  style={styles.iconPlay}/>
-                  </Button>
-                  <Button transparent>
-                    <Icon name='md-skip-forward'  style={styles.buttonStyle}/>
-                  </Button> 
-                  <Button transparent>
-                    <Icon name='menu'  style={styles.buttonStyle}/>
-                  </Button> 
+                    <View style={styles.groupIconContainer}>
+                        <Text
+                            style={{
+                            fontSize: 16,
+                            color: '#000000'
+                        }}>{secondstoMMSS(this.state.startTime)}</Text>
+
+                        <View
+                            style={{
+                            marginTop: 2,
+                            width: maxWidth
+                        }}>
+                            <Slider
+                                minimumTrackTintColor='#000000'
+                                thumbTintColor='#000000'
+                                step={maxWidth / endTime}
+                                minimumValue={0}
+                                value={this.state.startTime}
+                                maximumValue={endTime}
+                                onValueChange={(val) => {
+                                this.setState({startTime: val});
+                            }}/>
+                        </View>
+                        <Text
+                            style={{
+                            fontSize: 16,
+                            color: '#000000'
+                        }}>{this.state.endTime}</Text>
+
+                    </View>
+
+                    <View style={styles.groupIconContainer1}>
+                        <Button transparent>
+                            <Icon name='ios-shuffle' style={styles.buttonStyle}/>
+                        </Button>
+                        <Button transparent>
+                            <Icon name='md-skip-backward' style={styles.buttonStyle}/>
+                        </Button>
+                        <Button transparent style={styles.buttonPlay}>
+                            <Icon name='ios-play' style={styles.iconPlay}/>
+                        </Button>
+                        <Button transparent>
+                            <Icon name='md-skip-forward' style={styles.buttonStyle}/>
+                        </Button>
+                        <Button transparent>
+                            <Icon name='menu' style={styles.buttonStyle}/>
+                        </Button>
+                    </View>
                 </View>
-              </View>
             </View>
 
         )
     }
 }
 
-const styles= StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
-        flex:1,
+        flex: 1
     },
 
-    part1:{
+    part1: {
         position: 'absolute',
         top: 0,
         left: 0,
         height: 360,
-        width: '100%',  
-        backgroundColor: '#d6d6d4',
+        width: '100%',
+        backgroundColor: '#d6d6d4'
     },
 
-    part2:{
+    part2: {
         position: 'absolute',
         top: 360,
         left: 0,
         height: 360,
-        width: '100%',  
-        backgroundColor: '#d6d6d4',
+        width: '100%',
+        backgroundColor: '#d6d6d4'
     },
 
     backgroundImage: {
@@ -130,7 +159,7 @@ const styles= StyleSheet.create({
         left: 0,
         height: 270,
         width: '100%',
-        backgroundColor: '#513e33',
+        backgroundColor: '#513e33'
     },
 
     backdropImage: {
@@ -139,7 +168,7 @@ const styles= StyleSheet.create({
         left: 40,
         height: 300,
         width: '80%',
-        backgroundColor: 'green',
+        backgroundColor: 'green'
     },
 
     bdImage: {
@@ -148,33 +177,31 @@ const styles= StyleSheet.create({
         left: 0,
         height: 300,
         width: '100%',
-        backgroundColor: 'green',
+        backgroundColor: 'green'
     },
 
     contentBackground: {
-        backgroundColor: '#dbd7d4',
+        backgroundColor: '#dbd7d4'
     },
 
     smalltext: {
-        color:'#000000',
+        color: '#000000',
         textAlign: 'center',
         fontSize: 15,
-        marginTop: 5,
-       
+        marginTop: 5
     },
 
     bigtext: {
-        color:'#000000',
+        color: '#000000',
         fontSize: 25,
         textAlign: 'center',
-        marginTop: 15,
-       
+        marginTop: 15
     },
 
     text: {
         color: '#ffffff',
         fontSize: 20,
-        textAlign: 'center',
+        textAlign: 'center'
     },
 
     buttonStyle: {
@@ -192,40 +219,36 @@ const styles= StyleSheet.create({
         borderRadius: 25,
         color: '#ffffff',
         width: 25,
-        height: 25,
+        height: 25
     },
 
     buttonPlay: {
         backgroundColor: '#000000',
-        marginTop: 5, 
-        borderRadius: 20, 
-        width:40, 
-        height:40
+        marginTop: 5,
+        borderRadius: 20,
+        width: 40,
+        height: 40
     },
 
     iconPlay: {
-        color:'#ffffff',
-        fontSize: 20, 
+        color: '#ffffff',
+        fontSize: 20,
         textAlign: 'center'
     },
 
     groupIconContainer: {
         flexDirection: 'row',
-        marginTop: 10, 
-        justifyContent: 'space-between', 
-        paddingLeft: 20, 
-        paddingRight:20
+        marginTop: 10,
+        justifyContent: 'space-between',
+        paddingLeft: 20,
+        paddingRight: 20
     },
 
     groupIconContainer1: {
         flexDirection: 'row',
-        marginTop: 20, 
-        justifyContent: 'space-between', 
-        paddingLeft: 20, 
-        paddingRight:20
+        marginTop: 20,
+        justifyContent: 'space-between',
+        paddingLeft: 20,
+        paddingRight: 20
     }
 });
-
-
-
-
