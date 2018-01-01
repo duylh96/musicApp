@@ -1,79 +1,72 @@
 import React, {Component} from 'react';
-import {Text,  View, Icon, Button} from 'native-base';
+import {Text, View, Icon, Button} from 'native-base';
 import {StyleSheet, Image, TouchableOpacity} from 'react-native';
 
 export default class AboutScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
-               <View style={styles.imgBG}>
-                    <Image style={styles.imgBG}  source={require('../Images/About/react_native.png')} ></Image>
-               </View>
-               <View style={styles.groupIcon}>
+                <View style={styles.imgBG}>
+                    <Image
+                        style={styles.imgBG}
+                        source={require('../Images/About/react_native.png')}></Image>
+                </View>
+                <View style={styles.groupIcon}>
                     <TouchableOpacity>
-                      <Icon name='ios-add-outline' style={styles.round_icon}></Icon>
+                        <Icon name='ios-add-outline' style={styles.round_icon}></Icon>
                     </TouchableOpacity>
                     <Text style={styles.round_icon1}>D</Text>
                     <Text style={styles.round_icon2}>Đ</Text>
                     <Text style={styles.round_icon3}>S</Text>
-               </View>
-               <Button transparent androidRippleColor full style ={styles.button_normal}>
-                        <View style={styles.button_normal_view}>
-                            <Icon name='ios-contacts' style={styles.icon}/>
-                            <Text style={styles.title}>Danh sách thành viên</Text>
-                        </View>
+                </View>
+                <Button transparent androidRippleColor full style ={styles.button_normal}>
+                    <View style={styles.button_normal_view}>
+                        <Icon name='ios-contacts' style={styles.icon}/>
+                        <Text style={styles.title}>Danh sách thành viên</Text>
+                    </View>
                 </Button>
-                <View style={styles.memberContainer}>  
-                        <View style={styles.infoBar}>
-                        </View>
-                        <Image source={require('../Images/About/Duy.png')} style={styles.memberInfo}>
-                        </Image>
-                        <Text style={styles.textInfo}>
-                               Lương Hoàng Duy
-                        </Text>
+                <View style={styles.memberContainer}>
+                    <View style={styles.infoBar}></View>
+                    <Image source={require('../Images/About/Duy.png')} style={styles.memberInfo}></Image>
+                    <Text style={styles.textInfo}>
+                        Lương Hoàng Duy
+                    </Text>
                 </View>
-                <View style={styles.memberContainer}>  
-                        <View style={styles.infoBar}>
-                        </View>
-                        <Image source={require('../Images/About/Dat.png')} style={styles.memberInfo}>
-                        </Image>
-                        <Text style={styles.textInfo}>
-                              Phạm Kim Đạt
-                        </Text>
+                <View style={styles.memberContainer}>
+                    <View style={styles.infoBar}></View>
+                    <Image source={require('../Images/About/Dat.png')} style={styles.memberInfo}></Image>
+                    <Text style={styles.textInfo}>
+                        Phạm Kim Đạt
+                    </Text>
                 </View>
-                <View style={styles.memberContainer}>  
-                        <View style={styles.infoBar}>
-                        </View>
-                        <Image source={require('../Images/About/Sy.png')} style={styles.memberInfo}>
-                        </Image>
-                        <Text style={styles.textInfo}>
-                               Nguyễn Huỳnh Tuấn Sỹ
-                        </Text>
+                <View style={styles.memberContainer}>
+                    <View style={styles.infoBar}></View>
+                    <Image source={require('../Images/About/Sy.png')} style={styles.memberInfo}></Image>
+                    <Text style={styles.textInfo}>
+                        Nguyễn Huỳnh Tuấn Sỹ
+                    </Text>
                 </View>
-                <View style={styles.treeBar}>
-                    
-                </View>
-        </View>
+                <View style={styles.treeBar}></View>
+            </View>
         )
     }
 }
 
-
-const styles=StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         flex: 1
     },
 
     imgBG: {
-        height: 200, 
-        width: '100%',
+        height: 200,
+        width: '100%'
     },
 
     groupIcon: {
         flexDirection: 'row',
         marginTop: 0,
         alignSelf: 'center',
-        marginTop: 20,
+        marginTop: 20
     },
 
     round_icon: {
@@ -86,7 +79,7 @@ const styles=StyleSheet.create({
         color: '#ffffff',
         backgroundColor: '#999999'
     },
-    
+
     round_icon1: {
         marginLeft: -10,
         paddingTop: 5,
@@ -138,12 +131,12 @@ const styles=StyleSheet.create({
     button_normal: {
         justifyContent: 'flex-start',
         marginTop: 20,
-        marginLeft: 5,
+        marginLeft: 5
     },
 
     button_normal_view: {
-      flexDirection: 'row',
-      marginTop:15
+        flexDirection: 'row',
+        marginTop: 15
     },
 
     title: {
@@ -151,23 +144,23 @@ const styles=StyleSheet.create({
         marginTop: 5,
         marginBottom: 10,
         fontWeight: '600',
-        fontSize: 20,
+        fontSize: 20
     },
 
     memberContainer: {
-        marginTop: 20, 
-        marginLeft: 40, 
+        marginTop: 20,
+        marginLeft: 40,
         flexDirection: 'row'
     },
 
     infoBar: {
-        backgroundColor: '#000000', 
-        marginTop: 20, 
-        width: 40, 
-        height:5 
+        backgroundColor: '#000000',
+        marginTop: 20,
+        width: 40,
+        height: 5
     },
 
-    memberInfo: {   
+    memberInfo: {
         height: 50,
         width: 50,
         borderRadius: 30,
@@ -176,18 +169,18 @@ const styles=StyleSheet.create({
     },
 
     textInfo: {
-        marginLeft: 10, 
-        marginTop:10, 
-        fontSize: 18, 
+        marginLeft: 10,
+        marginTop: 10,
+        fontSize: 18,
         fontWeight: '400'
     },
 
     treeBar: {
-        position: 'absolute', 
-        top: 335, 
-        left: 30, 
-        width: 10, 
-        height: 185, 
+        position: 'absolute',
+        top: 335,
+        left: 30,
+        width: 10,
+        height: 185,
         backgroundColor: '#000000'
     }
 
