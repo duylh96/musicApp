@@ -62,7 +62,7 @@ export default class MainFooter extends Component {
                 .currentSong
                 .content
                 .play();
-        }, 1000)
+        }, 100)
 
     };
     render() {
@@ -104,7 +104,7 @@ export default class MainFooter extends Component {
                         androidRippleColor
                         onPress={() => {
                         if (this.state.playing) 
-                            this.props.nav.navigate('Play');
+                            this.props.nav.navigate('Play',{currentSong: this.currentSong});
                         }}>
                         <View style={styles.footer}>
                             <Animated.View style={animatedStyle}>

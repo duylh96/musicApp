@@ -35,6 +35,12 @@ export default class Song {
             .stop();
     }
 
+    getDuration() {
+        return this
+            .song
+            .getDuration();
+    }
+
     getInstance() {
         return this.song === undefined;
     }

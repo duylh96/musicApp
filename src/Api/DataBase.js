@@ -6,35 +6,45 @@ export var listSong = [
         singer: 'Đức Phúc',
         color: 'purple',
         url: require('../Images/Albums/0.jpg'),
-        content: new Song(require('../Musics/Nam-Ay.mp3'))
+        content: new Song(require('../Musics/Nam-Ay.mp3')),
+        backgroundColor: '#513e33'
+
     }, {
         id: 1,
         name: 'Người Yêu Cô Ấy',
         singer: 'Châu Khải Phong',
         color: 'green',
         url: require('../Images/Albums/1.jpg'),
-        content: new Song(require('../Musics/Nam-Ay.mp3'))
+        content: new Song(require('../Musics/Nam-Ay.mp3')),
+        backgroundColor: 'blue'
+
     }, {
         id: 2,
         name: 'Tophit 90-2000 Remix',
         singer: 'Nguyễn Hải Yến',
         color: 'orange',
         url: require('../Images/Albums/2.jpg'),
-        content: new Song(require('../Musics/Nam-Ay.mp3'))
+        content: new Song(require('../Musics/Nam-Ay.mp3')),
+        backgroundColor: 'gray'
+
     }, {
         id: 3,
         name: 'Cánh Hoa Tàn',
         singer: 'Hương Tràm',
         color: 'gray',
         url: require('../Images/Albums/3.jpg'),
-        content: new Song(require('../Musics/Nam-Ay.mp3'))
+        content: new Song(require('../Musics/Nam-Ay.mp3')),
+        backgroundColor: 'red'
+
     }, {
         id: 4,
         name: 'Let Me Know',
         singer: 'Bùi Anh Tú',
         color: 'gray',
         url: require('../Images/Albums/4.jpg'),
-        content: new Song(require('../Musics/Nam-Ay.mp3'))
+        content: new Song(require('../Musics/Nam-Ay.mp3')),
+        backgroundColor: 'yellow'
+
     }
 ];
 

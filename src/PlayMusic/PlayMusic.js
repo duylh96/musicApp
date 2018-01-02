@@ -9,6 +9,7 @@ import {
     Icon
 } from 'native-base';
 import {StyleSheet, Image, Slider, constructor, TextInput} from 'react-native';
+import Song from '../Api/Song';
 
 var secondstoMMSS = function (totalSeconds) {
     var minutes = Math.floor(totalSeconds / 60);
@@ -26,16 +27,25 @@ export default class ProfileScreen extends Component {
     constructor(props) {
         super(props);
         this.state = props;
+        // this.state=params;
         this.state = {
             startTime: 0,
-            endTime: secondstoMMSS(endTime)
+            endTime: secondstoMMSS(192),
+            // params: "Năm ấy",
+            // params.singer: "Đức Phúc",
         }
     }
     render() {
+        const { params } = this.props.navigation.state;
         return (
             <View style={styles.container}>
                 <View style={styles.part1}>
-                    <View style={styles.backgroundImage}></View>
+                    <View style={{ position: 'absolute',
+                                    top: 0,
+                                    left: 0,
+                                    height: 270,
+                                    width: '100%',
+                                    backgroundColor: params.currentSong.backgroundColor }}></View>
                     <View
                         style={{
                         position: 'absolute',
@@ -51,8 +61,8 @@ export default class ProfileScreen extends Component {
                     </View>
                 </View>
                 <View style={styles.part2}>
-                    <Text style={styles.bigtext}>Năm Ấy</Text>
-                    <Text style={styles.smalltext}>Đức Phúc</Text>
+                    <Text style={styles.bigtext}>{params.currentSong.name}</Text>
+                    <Text style={styles.smalltext}>{params.currentSong.singer}</Text>
                     <View
                         style={{
                         flexDirection: 'row',
