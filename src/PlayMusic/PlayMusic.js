@@ -16,7 +16,9 @@ var secondstoMMSS = function (totalSeconds) {
     var seconds = totalSeconds - (minutes * 60);
     seconds = Math.round(seconds);
     var result = minutes;
-    result += ":" + (seconds < 10? "0" + seconds: seconds);
+    result += ":" + (seconds < 10
+        ? "0" + seconds
+        : seconds);
     return result;
 }
 
@@ -31,21 +33,23 @@ export default class ProfileScreen extends Component {
         this.state = {
             startTime: 0,
             endTime: secondstoMMSS(192),
-            // params: "Năm ấy",
-            // params.singer: "Đức Phúc",
+            // params: "Năm ấy", params.singer: "Đức Phúc",
         }
     }
     render() {
-        const { params } = this.props.navigation.state;
+        const {params} = this.props.navigation.state;
         return (
             <View style={styles.container}>
                 <View style={styles.part1}>
-                    <View style={{ position: 'absolute',
-                                    top: 0,
-                                    left: 0,
-                                    height: 270,
-                                    width: '100%',
-                                    backgroundColor: params.currentSong.backgroundColor }}></View>
+                    <View
+                        style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        height: 270,
+                        width: '100%',
+                        backgroundColor: params.currentSong.backgroundColor
+                    }}></View>
                     <View
                         style={{
                         position: 'absolute',
@@ -57,7 +61,7 @@ export default class ProfileScreen extends Component {
                         </Button>
                     </View>
                     <View style={styles.backdropImage}>
-                        <Image source={require('../Images/BackDrop/0.png')} style={styles.bdImage}/>
+                        <Image source={params.currentSong.image} style={styles.bdImage}/>
                     </View>
                 </View>
                 <View style={styles.part2}>

@@ -62,7 +62,7 @@ export default class MainFooter extends Component {
                 .currentSong
                 .content
                 .play();
-        }, 100)
+        }, 1000)
 
     };
     render() {

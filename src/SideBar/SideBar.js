@@ -14,7 +14,6 @@ const routes = ["Home", "Chat", "Profile"];
 export default class SideBar extends React.Component {
     render() {
         return (
-
             <Content>
                 <View style={styles.background}>
                     <Image
