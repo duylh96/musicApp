@@ -57,6 +57,7 @@ export default class PlaylistScreen extends Component < {} > {
 		{url:'https://avatar-nct.nixcdn.com/playlist/2017/11/02/c/d/5/b/1509587114293.jpg', Name:"Legend Never Die", Artist: 'V.A'},
 		];
         return (
+		<Content>
 			<View style={css.album}>
 				<View style={css.album_header}>
 				  <Text style={css.album_text_header}>Playlist</Text>
@@ -79,12 +80,15 @@ export default class PlaylistScreen extends Component < {} > {
 				  <Button transparent androidRippleColor height={180} width ={120}>
 					<View style={css.album_grid_item}>
 					  <Image source={{uri:'https://daks2k3a4ib2z.cloudfront.net/594a5ccb9407cf4ccfd5d32c/595d1d01117a9e1fbb9c4fce_video-play-icon.png'}} style={css.iconPlay}/>
-				      	  <Image source={{uri:'https://cdn2.iconfinder.com/data/icons/app-types-in-grey/512/audioguide_512pxGREY.png'}} style={css.iconListen}/>
+					  <Text style={css.hear}>2.3</Text>
+				      <Image source={{uri:'https://marketplace.canva.com/MACZMi8_80g/1/thumbnail_large/canva-industrial-safety-headphones-icon-MACZMi8_80g.png'}} style={css.iconListen}/>
 					  <Image source={{uri: item.url}} style={css.album_grid_item_image}/>
 					  <View
 						style={{
 						height: 60,
-						justifyContent: 'space-between'
+						justifyContent: 'space-between',
+						zIndex:2,
+						marginTop: 120,
 					  }}>
 						<Text
 						  style={{
@@ -104,15 +108,26 @@ export default class PlaylistScreen extends Component < {} > {
 				  </Button>
 				)}/>
 			  </View>
+	</Content>
         );
     }
 }
 var css = StyleSheet.create({
+	hear:{
+		position: 'absolute',
+		height: 30,
+		width: 30,
+		marginTop: 100,
+		marginLeft: 35,
+		zIndex:2,
+		fontSize:13,
+		color:'white'
+	},
 	iconListen:{
 		position: 'absolute',
 		height: 30,
 		width: 30,
-		marginTop: 85,
+		marginTop: 90,
 		zIndex:2,
 	},
 	iconPlay:{
@@ -123,9 +138,12 @@ var css = StyleSheet.create({
 		marginTop: 85,
 		zIndex:2,
 	},
+	album:{
+		
+	},
 	album_header: {
 		flexDirection: 'row',
-		justifyContent: 'space-between',
+		//justifyContent: 'space-between',
 		alignItems: 'center',
 		borderColor: 'transparent',
 		borderLeftColor: '#2daaed',
@@ -140,6 +158,7 @@ var css = StyleSheet.create({
 		fontWeight: '200'
 	  },
 	  album_grid: {
+		flexDirection: 'row',
 		borderWidth: 0
 	  },
 	  album_grid_item: {
@@ -155,6 +174,7 @@ var css = StyleSheet.create({
 		zIndex:1,
 	  },
 	  selection:{
+		marginLeft:150,
 		flexDirection: 'row',  
 	  },
 });
