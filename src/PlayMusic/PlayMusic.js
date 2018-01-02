@@ -9,7 +9,6 @@ import {
     Icon
 } from 'native-base';
 import {StyleSheet, Image, Slider, constructor, TextInput} from 'react-native';
-import Song from '../Api/Song';
 
 var secondstoMMSS = function (totalSeconds) {
     var minutes = Math.floor(totalSeconds / 60);

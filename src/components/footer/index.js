@@ -9,7 +9,6 @@ import {
     Text,
     View
 } from 'native-base';
-import Song from '../../Api/Song';
 
 export default class MainFooter extends Component {
     componentWillMount() {
@@ -25,9 +24,6 @@ export default class MainFooter extends Component {
         }
     }
     spin() {
-        this
-            .animatedValue
-            .setValue(0);
         Animated
             .timing(this.animatedValue, {
             toValue: 1,
@@ -35,9 +31,12 @@ export default class MainFooter extends Component {
             easing: Easing.linear
         })
             .start((o) => {
-                if (this.state.playing && o.finished) 
+                if (this.state.playing && o.finished) {
+                    this
+                        .animatedValue
+                        .setValue(0);
                     this.spin();
-                else {
+                } else {
                     this
                         .animatedValue
                         .stopAnimation();
@@ -46,6 +45,10 @@ export default class MainFooter extends Component {
     }
     updateCurrentSong(item) {
         if (this.state.playing === true) {
+            this
+                .currentSong
+                .content
+                .stop();
             this.setState({playing: false});
             this
                 .animatedValue
@@ -71,12 +74,16 @@ export default class MainFooter extends Component {
                 .currentSong
                 .content
                 .play();
+            this.spin();
         };
         pause = () => {
             this
                 .currentSong
                 .content
                 .pause();
+            this
+                .animatedValue
+                .stopAnimation();
         };
         showMenu = () => {
             alert('show menus')
