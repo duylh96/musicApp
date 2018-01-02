@@ -23,21 +23,16 @@ var secondstoMMSS = function (totalSeconds) {
 }
 
 var maxWidth = 250;
-var endTime = 192;
-
 export default class ProfileScreen extends Component {
     constructor(props) {
         super(props);
-        this.state = props;
-        // this.state=params;
+        this.param = this.props.navigation.state.params;
         this.state = {
             startTime: 0,
-            endTime: secondstoMMSS(192),
-            // params: "Năm ấy", params.singer: "Đức Phúc",
+            endTime: secondstoMMSS(this.param.currentSong.content.getDuration())
         }
     }
     render() {
-        const {params} = this.props.navigation.state;
         return (
             <View style={styles.container}>
                 <View style={styles.part1}>
@@ -48,7 +43,7 @@ export default class ProfileScreen extends Component {
                         left: 0,
                         height: 270,
                         width: '100%',
-                        backgroundColor: params.currentSong.backgroundColor
+                        backgroundColor: this.param.currentSong.backgroundColor
                     }}></View>
                     <View
                         style={{
@@ -61,12 +56,12 @@ export default class ProfileScreen extends Component {
                         </Button>
                     </View>
                     <View style={styles.backdropImage}>
-                        <Image source={params.currentSong.image} style={styles.bdImage}/>
+                        <Image source={this.param.currentSong.image} style={styles.bdImage}/>
                     </View>
                 </View>
                 <View style={styles.part2}>
-                    <Text style={styles.bigtext}>{params.currentSong.name}</Text>
-                    <Text style={styles.smalltext}>{params.currentSong.singer}</Text>
+                    <Text style={styles.bigtext}>{this.param.currentSong.name}</Text>
+                    <Text style={styles.smalltext}>{this.param.currentSong.singer}</Text>
                     <View
                         style={{
                         flexDirection: 'row',
@@ -104,10 +99,18 @@ export default class ProfileScreen extends Component {
                             <Slider
                                 minimumTrackTintColor='#000000'
                                 thumbTintColor='#000000'
-                                step={maxWidth / endTime}
+                                step={maxWidth / this
+                                .param
+                                .currentSong
+                                .content
+                                .getDuration()}
                                 minimumValue={0}
                                 value={this.state.startTime}
-                                maximumValue={endTime}
+                                maximumValue={this
+                                .param
+                                .currentSong
+                                .content
+                                .getDuration()}
                                 onValueChange={(val) => {
                                 this.setState({startTime: val});
                             }}/>

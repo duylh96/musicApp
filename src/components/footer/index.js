@@ -85,9 +85,9 @@ export default class MainFooter extends Component {
             .animatedValue
             .interpolate({
                 inputRange: [
-                    0, 0.25, 0.5, 0.75, 1
+                    0, 1
                 ],
-                outputRange: ['0deg', '90deg', '180deg', '270deg', '360deg']
+                outputRange: ['0deg', '360deg']
             })
         const animatedStyle = {
             transform: [
@@ -104,7 +104,7 @@ export default class MainFooter extends Component {
                         androidRippleColor
                         onPress={() => {
                         if (this.state.playing) 
-                            this.props.nav.navigate('Play',{currentSong: this.currentSong});
+                            this.props.nav.navigate('Play', {currentSong: this.currentSong});
                         }}>
                         <View style={styles.footer}>
                             <Animated.View style={animatedStyle}>
