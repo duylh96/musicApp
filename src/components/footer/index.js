@@ -44,7 +44,7 @@ export default class MainFooter extends Component {
                 }
             })
     }
-    updateCurrentSong(song) {
+    updateCurrentSong(item) {
         if (this.state.playing === true) {
             this.setState({playing: false});
             this
@@ -55,11 +55,12 @@ export default class MainFooter extends Component {
                 .setValue(0);
         }
         setTimeout(() => {
-            this.setState({title: song.name, sub_title: song.singer, posterURL: song.url, playing: true});
+            this.setState({title: item.name, sub_title: item.singer, posterURL: item.url, playing: true});
             this.spin();
-            this.currentSong = song.content;
+            this.currentSong = item;
             this
                 .currentSong
+                .content
                 .play();
         }, 1000)
 
@@ -68,11 +69,13 @@ export default class MainFooter extends Component {
         playOrResume = () => {
             this
                 .currentSong
+                .content
                 .play();
         };
         pause = () => {
             this
                 .currentSong
+                .content
                 .pause();
         };
         showMenu = () => {
@@ -99,7 +102,10 @@ export default class MainFooter extends Component {
                     <Button
                         light
                         androidRippleColor
-                        onPress={() => this.props.nav.navigate('Play')}>
+                        onPress={() => {
+                        if (this.state.playing) 
+                            this.props.nav.navigate('Play');
+                        }}>
                         <View style={styles.footer}>
                             <Animated.View style={animatedStyle}>
                                 <Thumbnail source={this.state.posterURL} style={styles.disk}/>

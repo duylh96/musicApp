@@ -11,8 +11,4 @@ export default class Manager {
             .ref
             .updateCurrentSong(song);
     }
-    print() {
-        Alert.alert('tested!');
-        console.log('tested!');
-    }
 }

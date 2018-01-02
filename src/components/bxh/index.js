@@ -10,7 +10,7 @@ import {
     Thumbnail,
     ActionSheet
 } from 'native-base';
-import Song from '../../Api/Song'
+import {listSong} from '../../Api/DataBase';
 
 var BUTTONS = [
     {
@@ -40,44 +40,6 @@ var CANCEL_INDEX = 4;
 
 class Bxh extends Component {
     render() {
-        const song_source = [
-            {
-                id: 1,
-                name: 'Năm Ấy',
-                singer: 'Đức Phúc',
-                color: 'purple',
-                url: require('../../Images/Albums/0.jpg'),
-                content: new Song(require('../../Musics/Nam-Ay.mp3'))
-            }, {
-                id: 2,
-                name: 'Người Yêu Cô Ấy',
-                singer: 'Châu Khải Phong',
-                color: 'green',
-                url: require('../../Images/Albums/1.jpg'),
-                content: new Song(require('../../Musics/Nam-Ay.mp3'))
-            }, {
-                id: 3,
-                name: 'Tophit 90-2000 Remix',
-                singer: 'Nguyễn Hải Yến',
-                color: 'orange',
-                url: require('../../Images/Albums/2.jpg'),
-                content: new Song(require('../../Musics/Nam-Ay.mp3'))
-            }, {
-                id: 4,
-                name: 'Cánh Hoa Tàn',
-                singer: 'Hương Tràm',
-                color: 'gray',
-                url: require('../../Images/Albums/3.jpg'),
-                content: new Song(require('../../Musics/Nam-Ay.mp3'))
-            }, {
-                id: 5,
-                name: 'Let Me Know',
-                singer: 'Bùi Anh Tú',
-                color: 'gray',
-                url: require('../../Images/Albums/4.jpg'),
-                content: new Song(require('../../Musics/Nam-Ay.mp3'))
-            }
-        ];
         return (
             <View>
                 <View style={styles.bxh_header}>
@@ -92,7 +54,7 @@ class Bxh extends Component {
                 </View>
 
                 <List
-                    dataArray={song_source}
+                    dataArray={listSong}
                     renderRow={item => <ListItem style={{
                     marginLeft: 3
                 }}>
@@ -114,7 +76,7 @@ class Bxh extends Component {
                                     style={{
                                     alignSelf: 'center',
                                     color: `${item.color}`
-                                }}>{`0${item.id}`}</Text>
+                                }}>{`0${item.id + 1}`}</Text>
                                 <Thumbnail size={80} source={item.url} style={styles.poster}/>
                                 <View style={styles.title}>
                                     <Text style={styles.text_title}>{item.name}</Text>

@@ -3,37 +3,11 @@ import {View, Text, Button, Icon} from 'native-base';
 import {Image, StyleSheet} from 'react-native';
 
 import GridView from 'react-native-super-grid';
+import {listAlbum} from '../../Api/DataBase';
 
 class GridAlbum extends Component {
 
   render() {
-    const album_source = [
-      {
-        name: 'Năm Ấy',
-        singer: 'Đức Phúc',
-        url: require('../../Images/Albums/0.jpg')
-      }, {
-        name: 'Người Yêu Cô Ấy',
-        singer: 'Châu Khải Phong',
-        url: require('../../Images/Albums/1.jpg')
-      }, {
-        name: 'Tophit 90-2000 Remix',
-        singer: 'Nguyễn Hải Yến',
-        url: require('../../Images/Albums/2.jpg')
-      }, {
-        name: 'Cánh Hoa Tàn (Mẹ Chồng OST)',
-        singer: 'Hương Tràm',
-        url: require('../../Images/Albums/3.jpg')
-      }, {
-        name: 'Let Me Know',
-        singer: 'Bùi Anh Tú',
-        url: require('../../Images/Albums/4.jpg')
-      }, {
-        name: 'Chẳng Là Gì Của Nhau',
-        singer: 'Hồng Dương M4U',
-        url: require('../../Images/Albums/5.jpg')
-      }
-    ];
     return (
       <View style={styles.album}>
         <View style={styles.album_header}>
@@ -50,7 +24,7 @@ class GridAlbum extends Component {
           style={styles.album_grid}
           itemDimension={110}
           spacing={1}
-          items={album_source}
+          items={listAlbum}
           renderItem={item => (
           <Button transparent androidRippleColor height={180}>
             <View style={styles.album_grid_item}>
