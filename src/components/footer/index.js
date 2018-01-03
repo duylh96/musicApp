@@ -57,6 +57,7 @@ export default class MainFooter extends Component {
             this
                 .animatedValue
                 .setValue(0);
+                useNativeDriver:true;
         }
         setTimeout(() => {
             this.setState({title: item.name, sub_title: item.singer, posterURL: item.url, playing: true});
@@ -79,6 +80,8 @@ export default class MainFooter extends Component {
           
         };
         pause = () => {
+            useNativeDriver:true;
+            useNativeDriver:true;
             this
                 .animatedValue
                 .stopAnimation();
@@ -94,6 +97,7 @@ export default class MainFooter extends Component {
         const interpolateRotation = this
             .animatedValue
             .interpolate({
+                
                 inputRange: [
                     0, 1
                 ],
