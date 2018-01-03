@@ -27,7 +27,7 @@ export default class MainFooter extends Component {
         Animated
             .timing(this.animatedValue, {
             toValue: 1,
-            duration: 300000,
+            duration: 7200,
             easing: Easing.linear,
             useNativeDriver: true
         })
@@ -71,20 +71,22 @@ export default class MainFooter extends Component {
     };
     render() {
         playOrResume = () => {
+            this.spin();
             this
                 .currentSong
                 .content
                 .play();
-            this.spin();
+          
         };
         pause = () => {
+            this
+                .animatedValue
+                .stopAnimation();
             this
                 .currentSong
                 .content
                 .pause();
-            this
-                .animatedValue
-                .stopAnimation();
+            
         };
         showMenu = () => {
             alert('show menus')
