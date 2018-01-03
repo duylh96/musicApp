@@ -27,8 +27,9 @@ export default class MainFooter extends Component {
         Animated
             .timing(this.animatedValue, {
             toValue: 1,
-            duration: 3600,
-            easing: Easing.linear
+            duration: 300000,
+            easing: Easing.linear,
+            useNativeDriver: true
         })
             .start((o) => {
                 if (this.state.playing && o.finished) {
