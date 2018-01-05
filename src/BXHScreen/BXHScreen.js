@@ -29,7 +29,7 @@ export default class BXHScreen extends Component {
 	return (
 	            <Container>
 					<Content>
-						<Content >
+						<Content style={styles.render}>
 							<View style={styles.bxh_header}>
 								<Text style={styles.bxh_text_header}>BXH Việt</Text>
 								<Button androidRippleColor transparent>
@@ -43,10 +43,10 @@ export default class BXHScreen extends Component {
 									transparent androidRippleColor>
 									<Image 
 										style={styles.button_icon}
-										source={{uri:'http://static.tainhachay.net/icon_album/2017/03/02/tai-bai-hat-bang-xep-hang-bai-hat-viet-nam-tuan-50-2015-hot-nhat-ve-may.png'}}/>
+										source={{uri:'https://avatar-nct.nixcdn.com/playlist/2014/07/04/a/7/d/0/1404443534516_500.jpg'}}/>
 									<Image
 										style={styles.button_small_icon}
-										source={{uri:'http://www.bodbot.com/Images/icons/play_icon.png'}}/>
+										source={{uri:'http://www.a-local-chaos-project.com/data/images/play_button.png'}}/>
 								</Button>
 								<View style={styles.item_render}>
 									<TouchableOpacity>
@@ -59,6 +59,7 @@ export default class BXHScreen extends Component {
 											<Text style={styles.text_singer}>  Ed Sheeran</Text>
 										</View>
 									</TouchableOpacity>
+									
 									<TouchableOpacity>
 									<View style={styles.first_render_item}>
 										<Image
@@ -88,10 +89,10 @@ export default class BXHScreen extends Component {
 										transparent androidRippleColor>
 										<Image 
 											style={styles.button_icon}
-											source={{uri:'https://avatar-nct.nixcdn.com/song/2017/10/27/9/d/8/d/1509093543890.jpg'}}/>
+											source={{uri:'https://avatar-nct.nixcdn.com/playlist/2017/10/16/b/4/7/4/1508125242858_500.jpg'}}/>
 										<Image
 											style={styles.button_small_icon}
-											source={{uri:'http://www.bodbot.com/Images/icons/play_icon.png'}}/>
+											source={{uri:'http://www.a-local-chaos-project.com/data/images/play_button.png'}}/>
 									</Button>
 								<View style={styles.item_render}>
 									<TouchableOpacity>
@@ -133,10 +134,10 @@ export default class BXHScreen extends Component {
 										transparent androidRippleColor>
 										<Image 
 											style={styles.button_icon}
-											source={{uri:'https://avatar-nct.nixcdn.com/song/2017/10/27/9/d/8/d/1509093543890.jpg'}}/>
+											source={{uri:'https://avatar-nct.nixcdn.com/playlist/2017/07/31/1/c/4/9/1501496903063_500.jpg'}}/>
 										<Image
 											style={styles.button_small_icon}
-											source={{uri:'http://www.bodbot.com/Images/icons/play_icon.png'}}/>
+											source={{uri:'http://www.a-local-chaos-project.com/data/images/play_button.png'}}/>
 									</Button>
 								<View style={styles.item_render}>
 									<TouchableOpacity>
@@ -186,10 +187,10 @@ export default class BXHScreen extends Component {
 									transparent androidRippleColor>
 									<Image 
 										style={styles.button_icon}
-										source={{uri:'https://avatar-nct.nixcdn.com/song/2017/10/27/9/d/8/d/1509093543890.jpg'}}/>
+										source={{uri:'https://avatar-nct.nixcdn.com/playlist/2017/04/20/3/e/0/9/1492656959098_500.jpg'}}/>
 									<Image
 										style={styles.button_small_icon}
-										source={{uri:'http://www.bodbot.com/Images/icons/play_icon.png'}}/>
+										source={{uri:'http://www.a-local-chaos-project.com/data/images/play_button.png'}}/>
 								</Button>
 								<View style={styles.item_render}>
 									<TouchableOpacity>
@@ -231,10 +232,10 @@ export default class BXHScreen extends Component {
 										transparent androidRippleColor>
 										<Image 
 											style={styles.button_icon}
-											source={{uri:'https://avatar-nct.nixcdn.com/song/2017/10/27/9/d/8/d/1509093543890.jpg'}}/>
+											source={{uri:'https://avatar-nct.nixcdn.com/playlist/2017/07/14/d/0/6/d/1500003297328_500.jpg'}}/>
 										<Image
 											style={styles.button_small_icon}
-											source={{uri:'http://www.bodbot.com/Images/icons/play_icon.png'}}/>
+											source={{uri:'http://www.a-local-chaos-project.com/data/images/play_button.png'}}/>
 									</Button>
 								<View style={styles.item_render}>
 									<TouchableOpacity>
@@ -276,10 +277,10 @@ export default class BXHScreen extends Component {
 										transparent androidRippleColor>
 										<Image 
 											style={styles.button_icon}
-											source={{uri:'https://avatar-nct.nixcdn.com/song/2017/10/27/9/d/8/d/1509093543890.jpg'}}/>
+											source={{uri:'https://avatar-nct.nixcdn.com/playlist/2017/08/07/a/1/6/5/1502074528808_500.jpg'}}/>
 										<Image
 											style={styles.button_small_icon}
-											source={{uri:'http://www.bodbot.com/Images/icons/play_icon.png'}}/>
+											source={{uri:'http://www.a-local-chaos-project.com/data/images/play_button.png'}}/>
 									</Button>
 								<View style={styles.item_render}>
 									<TouchableOpacity>
@@ -317,29 +318,6 @@ export default class BXHScreen extends Component {
 						</Content>
 					</Content>
 	            </Container>
-//							  <List
-//								style={styles.list_render}
-//								dataArray={song_source}
-//								renderRow={item => <ListItem >
-//								<Button 
-//									style={styles.list_render_item}
-//									transparent androidRippleColor >
-//										<View style={styles.item_render}>
-//											<Image
-//												style={{
-//												alignSelf: 'center',
-//												height: 45, width: 45,
-//											}} source= {{uri: item.id_img}}/>
-//											<Image source={{uri: item.url}}/>
-//											<View style={styles.title}>
-//												<Text style={styles.text_title} >{item.Name}</Text>
-//												<Text>  </Text>
-//												<Text style={styles.text_singer}>{item.Artist}</Text>
-//											</View>
-//										</View>					
-//								</Button>
-//							</ListItem>}></List>
-						
 					
 				
 		
@@ -348,14 +326,21 @@ export default class BXHScreen extends Component {
 }
 
 const styles = StyleSheet.create({
+	render:{
+		borderBottomColor: 'silver',
+		borderBottomWidth:5,
+	},
 	first_render_item:{
 		flexDirection:'row',
 		height:40,
+		
 	},
 	item_render:{
 		flexDirection:'column',
 		height:120,
-		width:'100%',	
+		width:'100%',
+		marginBottom: 20,
+		
 	},
 	list_render:{
 		flexDirection:'column',
@@ -369,16 +354,17 @@ const styles = StyleSheet.create({
 	},
 	button_icon:{
 		position:'absolute',
-		height:120,
+		height:115,
 		width:120,
 		zIndex:1,
 	},
 	button:{
-		height:120,
+		height:115,
 		width:120,
-			},
+	},
 	content_render:{
 		flexDirection: 'row',
+		
 	},
 	
 	bxh_header: {
