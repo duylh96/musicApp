@@ -81,7 +81,6 @@ export default class MainFooter extends Component {
         };
         pause = () => {
             useNativeDriver:true;
-            useNativeDriver:true;
             this
                 .animatedValue
                 .stopAnimation();

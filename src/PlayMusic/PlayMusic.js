@@ -8,7 +8,14 @@ import {
     Thumbnail,
     Icon
 } from 'native-base';
-import {StyleSheet, Image, Slider, constructor, TextInput, StatusBar} from 'react-native';
+import {
+    StyleSheet,
+    Image,
+    Slider,
+    constructor,
+    TextInput,
+    StatusBar
+} from 'react-native';
 
 var secondstoMMSS = function (totalSeconds) {
     var minutes = Math.floor(totalSeconds / 60);
@@ -27,14 +34,49 @@ export default class PlayMusic extends Component {
         super(props);
         this.param = this.props.navigation.state.params;
         this.state = {
+            playing: false,
             startTime: 0,
-            endTime: secondstoMMSS(this.param.currentSong.content.getDuration())
+            endTime: secondstoMMSS(this.param.currentSong.content.getDuration()),
+            playbtnName: 'ios-pause'
         }
+    }
+
+    playOrResume = () => {
+        this
+            .param.currentSong
+            .content
+            .play();
+      
+    };
+    pause = () => {
+     
+      
+        this.param
+            .currentSong
+            .content
+            .pause();
+        
+    };
+    onButtonPlayPress = () => {
+        var strbtnPlay="ios-play"
+        var strbtnPause="ios-pause"
+       
+        if(this.state.playbtnName=strbtnPlay)
+        {
+                this.setState({playbtnName:strbtnPause}); 
+        }
+        if(this.state.playbtnName=strbtnPause)
+        {
+                this.setState({ playbtnName:strbtnPlay}); 
+        }
+       
     }
     render() {
         return (
             <View style={styles.container}>
-            <StatusBar backgroundColor={this.param.currentSong.backgroundColor} barStyle="light-content"/>
+                <StatusBar
+                    backgroundColor={this.param.currentSong.backgroundColor}
+                    barStyle="light-content"/>
                 <View style={styles.part1}>
                     <View
                         style={{
@@ -113,7 +155,11 @@ export default class PlayMusic extends Component {
                                 .getDuration()}
                                 onValueChange={(val) => {
                                 this.setState({startTime: val});
-                                this.param.currentSong.content.setCurrentTime(val);
+                                this
+                                    .param
+                                    .currentSong
+                                    .content
+                                    .setCurrentTime(val);
                             }}/>
                         </View>
                         <Text
@@ -131,11 +177,11 @@ export default class PlayMusic extends Component {
                         <Button transparent>
                             <Icon name='md-skip-backward' style={styles.buttonStyle}/>
                         </Button>
-                        <Button transparent style={styles.buttonPlay}>
-                            <Icon name='ios-play' style={styles.iconPlay}/>
+                        <Button transparent style={styles.buttonPlay} >
+                            <Icon name={this.state.playbtnName} style={styles.iconPlay} onPress={playOrResume}  />
                         </Button>
                         <Button transparent>
-                            <Icon name='md-skip-forward' style={styles.buttonStyle}/>
+                            <Icon name='md-skip-forward' style={styles.buttonStyle} onPress={pause}/>
                         </Button>
                         <Button transparent>
                             <Icon name='menu' style={styles.buttonStyle}/>
