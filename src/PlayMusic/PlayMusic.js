@@ -8,7 +8,7 @@ import {
     Thumbnail,
     Icon
 } from 'native-base';
-import {StyleSheet, Image, Slider, constructor, TextInput} from 'react-native';
+import {StyleSheet, Image, Slider, constructor, TextInput, StatusBar} from 'react-native';
 
 var secondstoMMSS = function (totalSeconds) {
     var minutes = Math.floor(totalSeconds / 60);
@@ -22,7 +22,7 @@ var secondstoMMSS = function (totalSeconds) {
 }
 
 var maxWidth = 250;
-export default class ProfileScreen extends Component {
+export default class PlayMusic extends Component {
     constructor(props) {
         super(props);
         this.param = this.props.navigation.state.params;
@@ -34,6 +34,7 @@ export default class ProfileScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
+            <StatusBar backgroundColor={this.param.currentSong.backgroundColor} barStyle="light-content"/>
                 <View style={styles.part1}>
                     <View
                         style={{
