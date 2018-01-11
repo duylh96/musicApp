@@ -33,7 +33,10 @@ export default class BXHScreen extends Component {
                             </Button>
                         </Left>
                         <Body>
-                            <Text>{params.search_query}</Text>
+                            <Text
+                                style={{
+                                color: '#FFFFFF'
+                            }}>{params.search_query}</Text>
                         </Body>
                         <Right/>
                     </Header>

@@ -14,21 +14,12 @@ import {
     Thumbnail
 } from 'native-base';
 import {StyleSheet, Alert} from 'react-native'
+import {searchDeXuat} from '../../Api/DataBase';
 
 export default class SearchDexuat extends Component {
     render() {
         const {search_query} = this.props.param;
-        const result = [
-            {
-                name: 'Năm Ấy',
-                singer: 'Đức Phúc',
-                type: 'song'
-            }, {
-                name: 'Năm Ấy',
-                singer: 'Đức Phúc',
-                type: 'mv'
-            }
-        ];
+        const result = searchDeXuat(search_query);
         return (
             <Content style={styles.container}>
                 <Text style={styles.text_title}>Đề xuất</Text>

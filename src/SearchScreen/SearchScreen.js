@@ -21,24 +21,14 @@ import getTheme from '../native-base-theme/components/';
 import material from '../native-base-theme/variables/material';
 import Flowlayout from 'react-native-flowlayout';
 import Footer from '@components/footer';
+import {listHotKey} from '../Api/DataBase';
 
 export default class SearchScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
             search_query: '',
-            hot_key: [
-                'chi dan',
-                'thay la yeu thuong',
-                'coming home',
-                'save me',
-                'bao anh',
-                'karik',
-                'christmas',
-                'despacito',
-                'mr siro',
-                'khoi my'
-            ],
+            hot_key: listHotKey,
             history: [
                 {
                     key: 'abc'

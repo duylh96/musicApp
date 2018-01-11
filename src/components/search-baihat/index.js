@@ -14,29 +14,12 @@ import {
     Thumbnail
 } from 'native-base';
 import {StyleSheet, Alert} from 'react-native'
+import {searchBaiHat} from '../../Api/DataBase';
 
 export default class SearchBaihat extends Component {
     render() {
         const {search_query} = this.props.param;
-        const result = [
-            {
-                name: 'Năm Ấy',
-                singer: 'Đức Phúc',
-                number: '1M'
-            }, {
-                name: 'Năm Ấy',
-                singer: 'Mắt Ngọc',
-                number: '729'
-            }, {
-                name: 'Năm Ấy',
-                singer: 'Dĩnh Nhi',
-                number: '822'
-            }, {
-                name: 'Mùa Oải Hương Năm Ấy',
-                singer: 'Phạm Hồng Phước',
-                number: '1M'
-            }
-        ];
+        const result = searchBaiHat(search_query);
         return (
             <Content style={styles.container}>
                 <Text style={styles.text_title}>Bài hát</Text>

@@ -14,38 +14,12 @@ import {
     Thumbnail
 } from 'native-base';
 import {StyleSheet, Alert, Image} from 'react-native'
+import {searchPlaylist} from '../../Api/DataBase'
 
 export default class SearchPlaylist extends Component {
     render() {
         const {search_query} = this.props.param;
-        const result = [
-            {
-                name: 'Năm Ấy',
-                singer: 'Đức Phúc',
-                url: require('../../Images/Posters/namay.jpg'),
-                number: '146K'
-            }, {
-                name: 'Mùa Đông Năm Ấy',
-                singer: 'Đỗ Thiên Bình',
-                url: require('../../Images/Posters/muadongnamay.jpg'),
-                number: '294'
-            }, {
-                name: 'Chàng Trai Năm Ấy',
-                singer: 'Sơn Tùng MTP, V.A',
-                url: require('../../Images/Posters/changtrainamay.jpg'),
-                number: '4M'
-            }, {
-                name: 'Gió Mùa Đông Năm Ấy',
-                singer: 'Moon Nguyễn, John Lê, Tố Đoàn...',
-                url: require('../../Images/Posters/giomuadongnamay.jpg'),
-                number: '1K'
-            }, {
-                name: 'Năm Ấy Hoa Nở Trăng Vừa...',
-                singer: 'V.A',
-                url: require('../../Images/Posters/namayhoanotrangvuatron.jpg'),
-                number: '830'
-            }
-        ];
+        const result = searchPlaylist(search_query);
         return (
             <Content style={styles.container}>
                 <Text style={styles.text_title}>Playlist</Text>

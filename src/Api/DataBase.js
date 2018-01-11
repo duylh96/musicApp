@@ -82,3 +82,152 @@ export var listAlbum = [
         url: require('../Images/Albums/5.jpg')
     }
 ];
+
+export var listHotKey = [
+    'nam ay',
+    'nguoi yeu co ay',
+    'let me know',
+    'save me',
+    'bao anh',
+    'karik',
+    'christmas',
+    'despacito',
+    'mr siro',
+    'khoi my'
+];
+
+export function searchDeXuat(query) {
+    switch (query) {
+        case "nam ay":
+            return [
+                {
+                    name: 'Năm Ấy',
+                    singer: 'Đức Phúc',
+                    type: 'song'
+                }, {
+                    name: 'Năm Ấy',
+                    singer: 'Đức Phúc',
+                    type: 'mv'
+                }
+            ];
+        case "nguoi yeu co ay":
+            return [
+                {
+                    name: 'Người Yêu Cô Ấy',
+                    singer: 'Châu Khải Phong',
+                    type: 'song'
+                }, {
+                    name: 'Người Yêu Cô Ấy',
+                    singer: 'Châu Khải Phong',
+                    type: 'mv'
+                }
+            ];
+        case "let me know":
+            return [
+                {
+                    name: 'Let Me Know',
+                    singer: 'Bùi Anh Tú',
+                    type: 'song'
+                }
+            ];
+    }
+}
+
+export function searchBaiHat(query) {
+    switch (query) {
+        case "nam ay":
+            return [
+                {
+                    name: 'Năm Ấy',
+                    singer: 'Đức Phúc',
+                    number: '1M'
+                }, {
+                    name: 'Năm Ấy',
+                    singer: 'Mắt Ngọc',
+                    number: '729'
+                }, {
+                    name: 'Năm Ấy',
+                    singer: 'Dĩnh Nhi',
+                    number: '822'
+                }, {
+                    name: 'Mùa Oải Hương Năm Ấy',
+                    singer: 'Phạm Hồng Phước',
+                    number: '1M'
+                }
+            ];
+        case "nguoi yeu co ay":
+            return [
+                {
+                    name: 'Người Ấy Yêu Em',
+                    singer: 'Trương Tâm Nhi',
+                    number: '1M'
+                }, {
+                    name: 'Người Ấy',
+                    singer: 'Trịnh Thăng Bình',
+                    number: '7M'
+                }, {
+                    name: 'Yêu Một Người Có Lẽ',
+                    singer: 'Lou Hoàng, Miu Lê, Onl...',
+                    number: '5M'
+                }, {
+                    name: 'Người Yêu Cô Ấy',
+                    singer: 'Châu Khải Phong',
+                    number: '1M'
+                }
+            ];
+        case "let me know":
+            return [
+                {
+                    name: 'Let Me Know',
+                    singer: 'BTS (Bangtan Boys)',
+                    number: '119K'
+                }, {
+                    name: 'Let Me Know',
+                    singer: 'GOT7',
+                    number: '15K'
+                }, {
+                    name: 'Let Me Know',
+                    singer: 'CNBLUE',
+                    number: '1K7'
+                }, {
+                    name: 'Let Me Know',
+                    singer: 'Kiss',
+                    number: '124'
+                }
+            ];
+    }
+}
+
+export function searchPlaylist(query) {
+    switch (query) {
+        case "nam ay":
+            return [
+                {
+                    name: 'Năm Ấy',
+                    singer: 'Đức Phúc',
+                    url: require('../Images/Posters/namay.jpg'),
+                    number: '146K'
+                }, {
+                    name: 'Mùa Đông Năm Ấy',
+                    singer: 'Đỗ Thiên Bình',
+                    url: require('../Images/Posters/muadongnamay.jpg'),
+                    number: '294'
+                }, {
+                    name: 'Chàng Trai Năm Ấy',
+                    singer: 'Sơn Tùng MTP, V.A',
+                    url: require('../Images/Posters/changtrainamay.jpg'),
+                    number: '4M'
+                }, {
+                    name: 'Gió Mùa Đông Năm Ấy',
+                    singer: 'Moon Nguyễn, John Lê, Tố Đoàn...',
+                    url: require('../Images/Posters/giomuadongnamay.jpg'),
+                    number: '1K'
+                }, {
+                    name: 'Năm Ấy Hoa Nở Trăng Vừa...',
+                    singer: 'V.A',
+                    url: require('../Images/Posters/namayhoanotrangvuatron.jpg'),
+                    number: '830'
+                }
+            ];
+    }
+}
