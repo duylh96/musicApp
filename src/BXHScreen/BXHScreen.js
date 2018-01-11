@@ -31,7 +31,7 @@ export default class BXHScreen extends Component {
 					<Content>
 						<Content style={styles.render}>
 							<View style={styles.bxh_header}>
-								<Text style={styles.bxh_text_header}>BXH Việt</Text>
+								<Text style={styles.bxh_text_header}>BXH US-UK</Text>
 								<Button androidRippleColor transparent>
 									<Icon name="md-arrow-forward"/>
 								</Button>
@@ -55,8 +55,8 @@ export default class BXHScreen extends Component {
 												style={{
 												height: 30, width: 30,
 												}} source= {{uri: 'https://images.vexels.com/media/users/3/127646/isolated/preview/bb4029ca0e2f6ffb36a5c80dba5e54e0-first-place-round-badge-by-vexels.png'}}/>
-											<Text style={styles.text_title}>Divide</Text> 
-											<Text style={styles.text_singer}>  Ed Sheeran</Text>
+											<Text style={styles.text_title}>Buồn của anh</Text> 
+											<Text style={styles.text_singer}>  K-ICM, Đạt G, Masew</Text>
 										</View>
 									</TouchableOpacity>
 									
@@ -66,8 +66,8 @@ export default class BXHScreen extends Component {
 											style={{
 											height: 30, width: 30,
 											}} source= {{uri: 'https://cdn.iconscout.com/public/images/icon/premium/png-512/badge-second-place-reward-award-33f61a015d97305e-512x512.png'}}/>
-										<Text style={styles.text_title}>Perfect </Text> 
-										<Text style={styles.text_singer}>  Taylor Swift</Text>
+										<Text style={styles.text_title}>Năm Ấy </Text> 
+										<Text style={styles.text_singer}>  Đức Phúc</Text>
 									</View>
 									</TouchableOpacity>
 									<TouchableOpacity>
@@ -76,8 +76,8 @@ export default class BXHScreen extends Component {
 											style={{
 											height: 30, width: 30,
 											}} source= {{uri: 'http://images.easyfreeclipart.com/1223/back-gt-gallery-for-6th-place-ribbon-clip-art-1223092.png'}}/>
-										<Text style={styles.text_title}>Revival </Text> 
-										<Text style={styles.text_singer}>  Eminem</Text>
+										<Text style={styles.text_title}>Ông bà anh</Text> 
+										<Text style={styles.text_singer}>  Lê Thiện Hiếu</Text>
 									</View>
 									</TouchableOpacity>
 								</View>
@@ -101,8 +101,8 @@ export default class BXHScreen extends Component {
 												style={{
 												height: 30, width: 30,
 												}} source= {{uri: 'https://images.vexels.com/media/users/3/127646/isolated/preview/bb4029ca0e2f6ffb36a5c80dba5e54e0-first-place-round-badge-by-vexels.png'}}/>
-											<Text style={styles.text_title}>Divide</Text> 
-											<Text style={styles.text_singer}>  Ed Sheeran</Text>
+											<Text style={styles.text_title}>Nhớ (Single)</Text> 
+											<Text style={styles.text_singer}>  Lê Thiện Hiếu</Text>
 										</View>
 									</TouchableOpacity>
 									<TouchableOpacity>
@@ -111,8 +111,8 @@ export default class BXHScreen extends Component {
 											style={{
 											height: 30, width: 30,
 											}} source= {{uri: 'https://cdn.iconscout.com/public/images/icon/premium/png-512/badge-second-place-reward-award-33f61a015d97305e-512x512.png'}}/>
-										<Text style={styles.text_title}>Perfect </Text> 
-										<Text style={styles.text_singer}>  Taylor Swift</Text>
+										<Text style={styles.text_title}>Back To The Basic (2018) </Text> 
+										<Text style={styles.text_singer}>  Tiêu Châu Như Quỳnh</Text>
 									</View>
 									</TouchableOpacity>
 									<TouchableOpacity>
@@ -121,8 +121,8 @@ export default class BXHScreen extends Component {
 											style={{
 											height: 30, width: 30,
 											}} source= {{uri: 'http://images.easyfreeclipart.com/1223/back-gt-gallery-for-6th-place-ribbon-clip-art-1223092.png'}}/>
-										<Text style={styles.text_title}>Revival </Text> 
-										<Text style={styles.text_singer}>  Eminem</Text>
+										<Text style={styles.text_title}>Xuân Bên Anh (Single) </Text> 
+										<Text style={styles.text_singer}>  Châu Khải Phong</Text>
 									</View>
 									</TouchableOpacity>
 								</View>
@@ -146,8 +146,8 @@ export default class BXHScreen extends Component {
 												style={{
 												height: 30, width: 30,
 												}} source= {{uri: 'https://images.vexels.com/media/users/3/127646/isolated/preview/bb4029ca0e2f6ffb36a5c80dba5e54e0-first-place-round-badge-by-vexels.png'}}/>
-											<Text style={styles.text_title}>Divide</Text> 
-											<Text style={styles.text_singer}>  Ed Sheeran</Text>
+											<Text style={styles.text_title}>Anh nói em nghe đi</Text> 
+											<Text style={styles.text_singer}>  Hoàng Yến Chibi</Text>
 										</View>
 									</TouchableOpacity>
 									<TouchableOpacity>
@@ -156,8 +156,8 @@ export default class BXHScreen extends Component {
 											style={{
 											height: 30, width: 30,
 											}} source= {{uri: 'https://cdn.iconscout.com/public/images/icon/premium/png-512/badge-second-place-reward-award-33f61a015d97305e-512x512.png'}}/>
-										<Text style={styles.text_title}>Perfect </Text> 
-										<Text style={styles.text_singer}>  Taylor Swift</Text>
+										<Text style={styles.text_title}>Ngày cưới </Text> 
+										<Text style={styles.text_singer}>  Yến Lê, Yanbi</Text>
 									</View>
 									</TouchableOpacity>
 									<TouchableOpacity>
@@ -166,8 +166,8 @@ export default class BXHScreen extends Component {
 											style={{
 											height: 30, width: 30,
 											}} source= {{uri: 'http://images.easyfreeclipart.com/1223/back-gt-gallery-for-6th-place-ribbon-clip-art-1223092.png'}}/>
-										<Text style={styles.text_title}>Revival </Text> 
-										<Text style={styles.text_singer}>  Eminem</Text>
+										<Text style={styles.text_title}>Để cho em khóc </Text> 
+										<Text style={styles.text_singer}>  Quang Hà </Text>
 									</View>
 									</TouchableOpacity>
 								</View>
@@ -244,7 +244,7 @@ export default class BXHScreen extends Component {
 												style={{
 												height: 30, width: 30,
 												}} source= {{uri: 'https://images.vexels.com/media/users/3/127646/isolated/preview/bb4029ca0e2f6ffb36a5c80dba5e54e0-first-place-round-badge-by-vexels.png'}}/>
-											<Text style={styles.text_title}>Divide</Text> 
+											<Text style={styles.text_title}>Shape of you</Text> 
 											<Text style={styles.text_singer}>  Ed Sheeran</Text>
 										</View>
 									</TouchableOpacity>
@@ -254,7 +254,7 @@ export default class BXHScreen extends Component {
 											style={{
 											height: 30, width: 30,
 											}} source= {{uri: 'https://cdn.iconscout.com/public/images/icon/premium/png-512/badge-second-place-reward-award-33f61a015d97305e-512x512.png'}}/>
-										<Text style={styles.text_title}>Perfect </Text> 
+										<Text style={styles.text_title}>Look what you made me do </Text> 
 										<Text style={styles.text_singer}>  Taylor Swift</Text>
 									</View>
 									</TouchableOpacity>
@@ -264,8 +264,8 @@ export default class BXHScreen extends Component {
 											style={{
 											height: 30, width: 30,
 											}} source= {{uri: 'http://images.easyfreeclipart.com/1223/back-gt-gallery-for-6th-place-ribbon-clip-art-1223092.png'}}/>
-										<Text style={styles.text_title}>Revival </Text> 
-										<Text style={styles.text_singer}>  Eminem</Text>
+										<Text style={styles.text_title}>Perfect </Text> 
+										<Text style={styles.text_singer}>  Ed Sheeran</Text>
 									</View>
 									</TouchableOpacity>
 								</View>
@@ -289,7 +289,7 @@ export default class BXHScreen extends Component {
 												style={{
 												height: 30, width: 30,
 												}} source= {{uri: 'https://images.vexels.com/media/users/3/127646/isolated/preview/bb4029ca0e2f6ffb36a5c80dba5e54e0-first-place-round-badge-by-vexels.png'}}/>
-											<Text style={styles.text_title}>Divide</Text> 
+											<Text style={styles.text_title}>A Team</Text> 
 											<Text style={styles.text_singer}>  Ed Sheeran</Text>
 										</View>
 									</TouchableOpacity>
@@ -299,8 +299,8 @@ export default class BXHScreen extends Component {
 											style={{
 											height: 30, width: 30,
 											}} source= {{uri: 'https://cdn.iconscout.com/public/images/icon/premium/png-512/badge-second-place-reward-award-33f61a015d97305e-512x512.png'}}/>
-										<Text style={styles.text_title}>Perfect </Text> 
-										<Text style={styles.text_singer}>  Taylor Swift</Text>
+										<Text style={styles.text_title}>Demon </Text> 
+										<Text style={styles.text_singer}>  Imagine Dragons</Text>
 									</View>
 									</TouchableOpacity>
 									<TouchableOpacity>
@@ -309,8 +309,8 @@ export default class BXHScreen extends Component {
 											style={{
 											height: 30, width: 30,
 											}} source= {{uri: 'http://images.easyfreeclipart.com/1223/back-gt-gallery-for-6th-place-ribbon-clip-art-1223092.png'}}/>
-										<Text style={styles.text_title}>Revival </Text> 
-										<Text style={styles.text_singer}>  Eminem</Text>
+										<Text style={styles.text_title}>Cant stop the feeling </Text> 
+										<Text style={styles.text_singer}>  Justin Timberlake</Text>
 									</View>
 									</TouchableOpacity>
 								</View>
