@@ -113,6 +113,7 @@ export default class PlayMusic extends Component {
                                 .getDuration()}
                                 onValueChange={(val) => {
                                 this.setState({startTime: val});
+                                this.param.currentSong.content.setCurrentTime(val);
                             }}/>
                         </View>
                         <Text
