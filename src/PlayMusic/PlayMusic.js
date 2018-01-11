@@ -29,6 +29,7 @@ var secondstoMMSS = function (totalSeconds) {
 }
 
 var maxWidth = 250;
+var btnName='ios-pause';
 export default class PlayMusic extends Component {
     constructor(props) {
         super(props);
@@ -37,15 +38,30 @@ export default class PlayMusic extends Component {
             playing: false,
             startTime: 0,
             endTime: secondstoMMSS(this.param.currentSong.content.getDuration()),
-            playbtnName: 'ios-pause'
+            playbtnName: btnName
         }
     }
 
     playOrResume = () => {
+        if(btnName.equals('ios-pause'))
+        {
+            btnName='ios-play'
+            this.state.playbtnName.setState({playbtnName:btnName});
+        }
+        else{
+            btnName='ios-pause'
+            this.state.playbtnName.setState({playbtnName:btnName});
+        }
         this
             .param.currentSong
             .content
             .play();
+
+        this
+            .param.currentSong
+            .content.setNumberOfLoops(-1);
+          
+            
       
     };
     pause = () => {
